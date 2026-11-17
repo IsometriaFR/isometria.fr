@@ -1,16 +1,17 @@
 # Isometria
 
-Boilerplate **Astro 6.x** + **Cloudflare Workers** (mai 2026).
+Site **Astro 7.x** + **Cloudflare Workers** (stack mise à jour en novembre 2026). Page d'accueil : cube-logo qui tourne au scroll (GSAP + Lenis).
 
 ## Stack
 
-- **Astro 6.x** — SSG par défaut + adapter Cloudflare prêt pour les pages SSR ponctuelles (`export const prerender = false`).
-- **`@astrojs/cloudflare` v13** — déploiement sur **Workers with Static Assets** (Pages déprécié).
+- **Astro 7.x** — SSG par défaut + adapter Cloudflare prêt pour les pages SSR ponctuelles (`export const prerender = false`).
+- **`@astrojs/cloudflare` v14** — déploiement sur **Workers with Static Assets** (Pages déprécié).
 - **Tailwind v4.3** — plugin Vite (plus de PostCSS), config CSS-first via `@theme`.
+- **GSAP 3.15 + Lenis** — timeline du cube pilotée par le scroll (`src/scripts/cube-home.js`), défilement doux désactivé si `prefers-reduced-motion`.
 - **workerd natif** — `astro dev` et `astro preview` tournent sur le runtime Workers réel, bindings KV/D1/R2 disponibles immédiatement (plus de `platformProxy`).
 - **Image Service `cloudflare-binding`** — transforms d'image via le binding Cloudflare Images (Sharp incompatible Workers).
 - **TypeScript strict** + alias `@/*` → `src/*`.
-- **Node 22.12+ requis** (Astro 6 a abandonné Node 18/20).
+- **Node 22.12+ requis** (Astro 6+ a abandonné Node 18/20).
 
 ## Prérequis
 
@@ -49,8 +50,10 @@ Ouvrir <http://localhost:4321>.
     ├── env.d.ts            # App.Locals (cfContext) — pas de Runtime<Env> en v6
     ├── pages/index.astro   # Routing fichier
     ├── layouts/BaseLayout.astro
-    ├── components/Welcome.astro
-    └── styles/global.css
+    ├── components/home/    # SiteHeader (logo texte) + CubeHome (sections de l'accueil)
+    ├── scripts/cube-home.js # cube-logo 3D en SVG, timeline GSAP + Lenis
+    ├── lib/gsap.ts         # GSAP + ScrollTrigger enregistré
+    └── styles/             # global.css (tokens) + home.css (accueil)
 ```
 
 ## Tailwind v4

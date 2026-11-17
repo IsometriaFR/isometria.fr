@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Welcome from '@/components/Welcome.astro';
-import ScrollFeatures from '@/components/ScrollFeatures.astro';
+import SiteHeader from '@/components/home/SiteHeader.astro';
+import CubeHome from '@/components/home/CubeHome.astro';
+import '@/styles/home.css';
 ---
 
-<BaseLayout title="Isometria — Boilerplate Astro + Cloudflare">
-  <Welcome />
-  <ScrollFeatures />
+<BaseLayout
+  title="Isometria · Sites, outils internes et IA pour TPE et PME"
+  description="Studio numérique pour TPE et PME : un site qui vous présente, des outils qui vous font gagner du temps, une IA qui connaît votre activité."
+>
+  <SiteHeader />
+  <CubeHome />
+  <footer class="foot"><div class="wrap"><span>© {new Date().getFullYear()} ISOMETRIA</span><span>SITES · OUTILS INTERNES · IA</span></div></footer>
 </BaseLayout>
