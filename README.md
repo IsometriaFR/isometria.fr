@@ -30,13 +30,18 @@ Ouvrir <http://localhost:4321>.
 
 ## Scripts
 
-| Commande | Rôle |
-|---|---|
-| `npm run dev` | Génère les types Cloudflare puis lance `astro dev` (workerd) |
-| `npm run build` | `wrangler types` + `astro check` + `astro build` |
-| `npm run preview` | Build + `astro preview` (workerd, parité production) |
-| `npm run typecheck` | `wrangler types` + `astro sync` + `astro check` |
-| `npm run deploy` | Build + `wrangler deploy` vers Cloudflare Workers |
+| Commande                 | Rôle                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| `npm run dev`            | Génère les types Cloudflare puis lance `astro dev` (workerd) |
+| `npm run build`          | `wrangler types` + `astro check` + `astro build`             |
+| `npm run preview`        | Build + `astro preview` (workerd, parité production)         |
+| `npm run typecheck`      | `wrangler types` + `astro sync` + `astro check`              |
+| `npm run lint`           | ESLint (TypeScript + Astro)                                  |
+| `npm run format`         | Prettier en écriture (`format:check` pour vérifier)          |
+| `npm run check`          | Format + lint + types : le quality gate local                |
+| `npm run lighthouse`     | Lighthouse CI sur `dist/client` (après `npm run build`)      |
+| `npm run deploy`         | Build + `wrangler deploy` vers la production                 |
+| `npm run deploy:preprod` | Build préprod + `wrangler deploy` vers la préprod            |
 
 ## Structure
 
@@ -96,7 +101,23 @@ Ouvrir <http://localhost:4321>.
 
 `process.env` ne fonctionne pas sur Workers : utiliser `import { env } from 'cloudflare:workers'`.
 
-## Déploiement
+## CI et déploiement
+
+Deux workflows GitHub Actions :
+
+- **`CI`** (`.github/workflows/ci.yml`), sur chaque pull request et chaque push sur `main` : Prettier, ESLint, `astro check`, `astro build`, puis **Lighthouse CI** (mobile, médiane de 3 passes). Seuils bloquants dans `lighthouserc.json` : performance ≥ 90, accessibilité, bonnes pratiques et SEO ≥ 95. Sur une PR, une fois le gate passé, une **URL d'aperçu** (`pr-<n>-isometria-preprod.<compte>.workers.dev`) est postée en commentaire.
+- **`Deploy`** (`.github/workflows/deploy.yml`), après un `CI` vert sur `main` : **préprod** automatique (`https://preprod.isometria.fr`), puis **production** (`https://isometria.fr`) après approbation sur l'environnement GitHub `production`.
+
+| Environnement | Worker              | Domaine                | Build                                  |
+| ------------- | ------------------- | ---------------------- | -------------------------------------- |
+| Production    | `isometria`         | `isometria.fr`         | `npm run build`                        |
+| Préprod       | `isometria-preprod` | `preprod.isometria.fr` | `CLOUDFLARE_ENV=preprod npm run build` |
+
+La préprod est servie avec `X-Robots-Tag: noindex` et un `robots.txt` qui interdit tout (`scripts/preprod-noindex.mjs`).
+
+Configuration requise côté GitHub (Settings → Secrets and variables → Actions) : le secret `CLOUDFLARE_API_TOKEN` et la variable `CLOUDFLARE_ACCOUNT_ID`. Tant que la variable est absente, seuls les contrôles tournent.
+
+## Déploiement manuel
 
 Première fois :
 

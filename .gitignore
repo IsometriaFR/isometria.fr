@@ -32,3 +32,4 @@ Thumbs.db
 # claude / agent skills caches
 .agents/
 .claude/skills/
+.lighthouseci/

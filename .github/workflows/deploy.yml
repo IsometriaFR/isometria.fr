@@ -1,0 +1,86 @@
+name: Deploy
+
+# Chaque push sur main (après le quality gate) part en préprod : https://preprod.isometria.fr
+# La production (https://isometria.fr) suit, après approbation manuelle sur l'environnement
+# GitHub « production » (Settings → Environments → production → Required reviewers).
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un seul déploiement à la fois, jamais annulé en cours de route.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  preprod:
+    name: Préprod
+    if: >-
+      vars.CLOUDFLARE_ACCOUNT_ID != '' &&
+      ((github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: preprod
+      url: https://preprod.isometria.fr
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build (préprod)
+        run: npm run build
+        env:
+          CLOUDFLARE_ENV: preprod
+
+      - name: Déploiement préprod
+        run: npx wrangler deploy --message "preprod ${SHA::7}"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+  production:
+    name: Production
+    needs: preprod
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://isometria.fr
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build (production)
+        run: npm run build
+
+      - name: Déploiement production
+        run: npx wrangler deploy --message "prod ${SHA::7}"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}

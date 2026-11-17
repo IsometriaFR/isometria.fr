@@ -1,23 +1,41 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+  // Production : worker « isometria », servi sur https://isometria.fr
+  // Préproduction : worker « isometria-preprod » (env « preprod »), servi sur https://preprod.isometria.fr
+  // Le build choisit l'environnement via la variable CLOUDFLARE_ENV (voir .github/workflows/).
   "name": "isometria",
   "compatibility_date": "2026-03-13",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
   },
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
   "limits": {
-    "cpu_ms": 50000
+    "cpu_ms": 50000,
   },
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "isometria.fr", "custom_domain": true }],
   "vars": {
-    "ENVIRONMENT": "production"
-  }
-  // Décommentez selon vos besoins :
+    "ENVIRONMENT": "production",
+  },
+  "env": {
+    "preprod": {
+      // Les « vars » et « routes » ne sont pas héritées : on les redéclare ici.
+      "workers_dev": true,
+      // URLs d'aperçu par pull request : pr-<n>-isometria-preprod.<sous-domaine>.workers.dev
+      "preview_urls": true,
+      "routes": [{ "pattern": "preprod.isometria.fr", "custom_domain": true }],
+      "vars": {
+        "ENVIRONMENT": "preprod",
+      },
+    },
+  },
+  // Décommentez selon vos besoins (à redéclarer aussi dans env.preprod) :
   // "kv_namespaces": [
   //   { "binding": "CACHE", "id": "<KV_NAMESPACE_ID>" }
   // ],
