@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* =========================================================================
    Design tokens — Isometria
@@ -7,62 +7,62 @@
 
 @theme {
   /* --- Couleurs : palette teal sauge ----------------------------------- */
-  --color-teal-50: #F0F5F4;
-  --color-teal-100: #DCE9E7;
-  --color-teal-200: #B9D3D0;
-  --color-teal-300: #8FB8B3;
-  --color-teal-400: #5A9792;
-  --color-teal-500: #3D807A;
-  --color-teal-600: #2E6F6A;
-  --color-teal-700: #265A56;
-  --color-teal-800: #1B4441;
-  --color-teal-900: #10302D;
+  --color-teal-50: #f0f5f4;
+  --color-teal-100: #dce9e7;
+  --color-teal-200: #b9d3d0;
+  --color-teal-300: #8fb8b3;
+  --color-teal-400: #5a9792;
+  --color-teal-500: #3d807a;
+  --color-teal-600: #2e6f6a;
+  --color-teal-700: #265a56;
+  --color-teal-800: #1b4441;
+  --color-teal-900: #10302d;
 
   /* --- Couleurs : palette crème (neutres + ink) ------------------------ */
-  --color-cream-50: #FFFFFF;
-  --color-cream-100: #FFFFFE;
-  --color-cream-200: #FEFDF9;
-  --color-cream-300: #FAF7EE;
-  --color-cream-400: #F1EDE0;
-  --color-cream-500: #DCD6C4;
-  --color-cream-600: #ADA896;
-  --color-cream-700: #6B6B62;
-  --color-cream-800: #45453F;
-  --color-cream-900: #2B2D2B;
+  --color-cream-50: #ffffff;
+  --color-cream-100: #fffffe;
+  --color-cream-200: #fefdf9;
+  --color-cream-300: #faf7ee;
+  --color-cream-400: #f1ede0;
+  --color-cream-500: #dcd6c4;
+  --color-cream-600: #ada896;
+  --color-cream-700: #6b6b62;
+  --color-cream-800: #45453f;
+  --color-cream-900: #2b2d2b;
 
   /* --- Tokens sémantiques (working tokens) ----------------------------- */
-  --color-background: #FEFDF9;       /* cream-200 — fond de page */
-  --color-surface: #FFFFFE;          /* cream-100 — carte standard */
-  --color-surface-raised: #FFFFFF;   /* cream-50  — carte raised, modale */
-  --color-surface-sunken: #FAF7EE;   /* cream-300 — bloc de code, aside */
-  --color-border: #F1EDE0;           /* cream-400 — bordure hairline */
-  --color-border-strong: #DCD6C4;    /* cream-500 — focus, état actif */
-  --color-text: #2B2D2B;             /* cream-900 — texte principal */
-  --color-text-soft: #6B6B62;        /* cream-700 — sous-titres, labels */
-  --color-text-muted: #ADA896;       /* cream-600 — meta, timestamps */
-  --color-primary: #2E6F6A;          /* teal-600 — boutons, liens */
-  --color-primary-hover: #3D807A;    /* teal-500 */
-  --color-primary-active: #265A56;   /* teal-700 */
-  --color-primary-soft: #DCE9E7;     /* teal-100 — badges, info-box */
-  --color-accent-text: #2E6F6A;      /* teal-600 — accent éditorial */
+  --color-background: #fefdf9; /* cream-200 — fond de page */
+  --color-surface: #fffffe; /* cream-100 — carte standard */
+  --color-surface-raised: #ffffff; /* cream-50  — carte raised, modale */
+  --color-surface-sunken: #faf7ee; /* cream-300 — bloc de code, aside */
+  --color-border: #f1ede0; /* cream-400 — bordure hairline */
+  --color-border-strong: #dcd6c4; /* cream-500 — focus, état actif */
+  --color-text: #2b2d2b; /* cream-900 — texte principal */
+  --color-text-soft: #6b6b62; /* cream-700 — sous-titres, labels */
+  --color-text-muted: #ada896; /* cream-600 — meta, timestamps */
+  --color-primary: #2e6f6a; /* teal-600 — boutons, liens */
+  --color-primary-hover: #3d807a; /* teal-500 */
+  --color-primary-active: #265a56; /* teal-700 */
+  --color-primary-soft: #dce9e7; /* teal-100 — badges, info-box */
+  --color-accent-text: #2e6f6a; /* teal-600 — accent éditorial */
 
   /* --- États système (UI uniquement) ----------------------------------- */
-  --color-success-bg: #EAF2E4;
-  --color-success-text: #3B6D11;
-  --color-warning-bg: #FAEEDA;
-  --color-warning-text: #854F0B;
-  --color-danger-bg: #FCEBEB;
-  --color-danger-text: #A32D2D;
-  --color-info-bg: #DCE9E7;          /* teal-100 (cohérence sauge) */
-  --color-info-text: #265A56;        /* teal-700 */
+  --color-success-bg: #eaf2e4;
+  --color-success-text: #3b6d11;
+  --color-warning-bg: #faeeda;
+  --color-warning-text: #854f0b;
+  --color-danger-bg: #fcebeb;
+  --color-danger-text: #a32d2d;
+  --color-info-bg: #dce9e7; /* teal-100 (cohérence sauge) */
+  --color-info-text: #265a56; /* teal-700 */
 
   /* --- Typographie : familles ------------------------------------------ */
   /* `--font-plex|nunito|jet` sont injectés à la racine par Astro Fonts API
      (avec fallbacks optimisés via capsize). On alias les noms canoniques
      du design system par-dessus.                                          */
-  --font-serif: var(--font-plex);    /* IBM Plex Sans — titres */
-  --font-sans: var(--font-nunito);   /* Nunito Sans — corps + UI */
-  --font-mono: var(--font-jet);      /* JetBrains Mono — code */
+  --font-serif: var(--font-plex); /* IBM Plex Sans — titres */
+  --font-sans: var(--font-nunito); /* Nunito Sans — corps + UI */
+  --font-mono: var(--font-jet); /* JetBrains Mono — code */
 
   /* --- Typographie : échelle de tailles -------------------------------- */
   --text-2xs: 11px;

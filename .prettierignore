@@ -1,0 +1,11 @@
+dist/
+.astro/
+.wrangler/
+.lighthouseci/
+node_modules/
+package-lock.json
+skills-lock.json
+worker-configuration.d.ts
+docs/
+# Moteur du cube porté depuis le prototype (lignes denses volontaires)
+src/scripts/cube-home.js
