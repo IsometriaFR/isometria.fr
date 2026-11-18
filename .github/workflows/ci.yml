@@ -138,7 +138,7 @@ jobs:
 
       - name: Commentaire sur la PR
         if: always() && github.event_name == 'pull_request' && steps.upload.outputs.alias_url != ''
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const marker = '<!-- cloudflare-preview -->';
