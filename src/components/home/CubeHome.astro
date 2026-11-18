@@ -2,67 +2,133 @@
 // Accueil en 5 temps : hero, trois faces (site, outils, IA), contact.
 // Le cube-logo est dessiné en SVG par src/scripts/cube-home.js.
 ---
-<div class="bg" aria-hidden="true"><div class="depth depth-far" id="far"></div><div class="depth depth-near" id="near"></div></div>
+
+<div class="bg" aria-hidden="true">
+  <div class="depth depth-far" id="far"></div>
+  <div class="depth depth-near" id="near"></div>
+</div>
 <div class="stage" id="stage" aria-hidden="true"></div>
 
 <main>
-  <section class="scene hero" id="hero" data-face="hero"><div class="wrap">
-    <div class="copy">
-      <span class="eyebrow">Studio numérique pour TPE et PME</span>
-      <h1>Des outils numériques à la mesure de votre métier.</h1>
-      <p class="lead">Un site qui vous présente, des outils qui vous font gagner du temps, une IA qui connaît votre activité. Trois faces d'un même travail, et tout reste à vous.</p>
-      <div class="btn-row"><a class="btn" href="#contact">Parlons de votre projet</a><a class="btn ghost" href="#site">Voir les trois faces</a></div>
-      <span class="scroll-hint"><i></i>Faites tourner le cube</span>
+  <section class="scene hero" id="hero" data-face="hero">
+    <div class="wrap">
+      <div class="copy">
+        <span class="eyebrow">Studio numérique pour TPE et PME</span>
+        <h1>Des outils numériques à la mesure de votre métier.</h1>
+        <p class="lead">
+          Un site qui vous présente, des outils qui vous font gagner du temps, une IA qui connaît
+          votre activité. Trois faces d'un même travail, et tout reste à vous.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="#contact">
+            Parlons de votre projet
+          </a>
+          <a class="btn ghost" href="#site">
+            Voir les trois faces
+          </a>
+        </div>
+        <span class="scroll-hint">
+          <i></i>Faites tourner le cube
+        </span>
+      </div>
     </div>
-  </div></section>
+  </section>
 
-  <section class="scene right" id="site" data-face="site"><div class="wrap">
-    <div class="copy">
-      <span class="eyebrow"><b>Face 01</b> Site web</span>
-      <h2>Votre vitrine, ouverte même quand l'atelier est fermé.</h2>
-      <p>Je conçois un site clair et rapide qui montre votre savoir-faire et transforme une visite en demande de devis.</p>
-      <ul class="facts">
-        <li><span>01</span>Devis et rendez-vous demandés en ligne</li>
-        <li><span>02</span>Des contenus que vous modifiez vous-même</li>
-        <li><span>03</span>Code et nom de domaine à votre nom</li>
-      </ul>
+  <section class="scene right" id="site" data-face="site">
+    <div class="wrap">
+      <div class="copy">
+        <span class="eyebrow">
+          <b>Face 01</b> Site web
+        </span>
+        <h2>Votre vitrine, ouverte même quand l'atelier est fermé.</h2>
+        <p>
+          Je conçois un site clair et rapide qui montre votre savoir-faire et transforme une visite
+          en demande de devis.
+        </p>
+        <ul class="facts">
+          <li>
+            <span>01</span>Devis et rendez-vous demandés en ligne
+          </li>
+          <li>
+            <span>02</span>Des contenus que vous modifiez vous-même
+          </li>
+          <li>
+            <span>03</span>Code et nom de domaine à votre nom
+          </li>
+        </ul>
+      </div>
     </div>
-  </div></section>
+  </section>
 
-  <section class="scene" id="outils" data-face="outils"><div class="wrap">
-    <div class="copy">
-      <span class="eyebrow"><b>Face 02</b> Outils internes</span>
-      <h2>Vos fiches papier deviennent un outil taillé pour vous.</h2>
-      <p>Planning, devis, suivi de chantier ou de stock : je construis l'application qui suit votre façon de travailler, pas l'inverse.</p>
-      <ul class="facts">
-        <li><span>01</span>Une seule source pour toute l'équipe</li>
-        <li><span>02</span>Les tâches répétitives automatisées</li>
-        <li><span>03</span>Sur ordinateur, tablette et téléphone</li>
-      </ul>
+  <section class="scene" id="outils" data-face="outils">
+    <div class="wrap">
+      <div class="copy">
+        <span class="eyebrow">
+          <b>Face 02</b> Outils internes
+        </span>
+        <h2>Vos fiches papier deviennent un outil taillé pour vous.</h2>
+        <p>
+          Planning, devis, suivi de chantier ou de stock : je construis l'application qui suit votre
+          façon de travailler, pas l'inverse.
+        </p>
+        <ul class="facts">
+          <li>
+            <span>01</span>Une seule source pour toute l'équipe
+          </li>
+          <li>
+            <span>02</span>Les tâches répétitives automatisées
+          </li>
+          <li>
+            <span>03</span>Sur ordinateur, tablette et téléphone
+          </li>
+        </ul>
+      </div>
     </div>
-  </div></section>
+  </section>
 
-  <section class="scene right" id="ia" data-face="ia"><div class="wrap">
-    <div class="copy">
-      <span class="eyebrow"><b>Face 03</b> Intelligence artificielle</span>
-      <h2>Un assistant qui a lu vos documents.</h2>
-      <p>Tarifs, conditions, questions fréquentes : l'IA s'appuie sur ce que vous savez déjà pour répondre à vos clients ou préparer vos brouillons.</p>
-      <ul class="facts">
-        <li><span>01</span>Des réponses tirées de vos propres documents</li>
-        <li><span>02</span>Un brouillon prêt, vous gardez la main</li>
-        <li><span>03</span>Ajoutée à votre site ou à vos outils</li>
-      </ul>
+  <section class="scene right" id="ia" data-face="ia">
+    <div class="wrap">
+      <div class="copy">
+        <span class="eyebrow">
+          <b>Face 03</b> Intelligence artificielle
+        </span>
+        <h2>Un assistant qui a lu vos documents.</h2>
+        <p>
+          Tarifs, conditions, questions fréquentes : l'IA s'appuie sur ce que vous savez déjà pour
+          répondre à vos clients ou préparer vos brouillons.
+        </p>
+        <ul class="facts">
+          <li>
+            <span>01</span>Des réponses tirées de vos propres documents
+          </li>
+          <li>
+            <span>02</span>Un brouillon prêt, vous gardez la main
+          </li>
+          <li>
+            <span>03</span>Ajoutée à votre site ou à vos outils
+          </li>
+        </ul>
+      </div>
     </div>
-  </div></section>
+  </section>
 
-  <section class="final" id="contact" data-face="final"><div class="wrap">
-    <div class="copy">
-      <span class="eyebrow">Trois faces, un seul interlocuteur</span>
-      <h2>Racontez-moi votre métier, je dessine l'outil qui va avec.</h2>
-      <p>Un premier échange de trente minutes, sans engagement, pour voir quelle face compte le plus pour vous.</p>
-      <div class="btn-row"><a class="btn" href="#contact">Parlons de votre projet</a></div>
+  <section class="final" id="contact" data-face="final">
+    <div class="wrap">
+      <div class="copy">
+        <span class="eyebrow">Trois faces, un seul interlocuteur</span>
+        <h2>Racontez-moi votre métier, je dessine l'outil qui va avec.</h2>
+        <p>
+          Un premier échange de trente minutes, sans engagement, pour voir quelle face compte le
+          plus pour vous.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="#contact">
+            Parlons de votre projet
+          </a>
+        </div>
+      </div>
     </div>
-  </div></section>
+  </section>
 </main>
 
 <script>

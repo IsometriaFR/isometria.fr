@@ -4,11 +4,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "wrangler types && astro dev",
-    "build": "wrangler types && astro check && astro build",
-    "preview": "wrangler types && astro build && astro preview",
-    "typecheck": "wrangler types && astro sync && astro check",
+    "dev": "wrangler types -c wrangler.jsonc && astro dev",
+    "build": "wrangler types -c wrangler.jsonc && astro check && astro build",
+    "postbuild": "node scripts/preprod-noindex.mjs",
+    "preview": "wrangler types -c wrangler.jsonc && astro build && astro preview",
+    "typecheck": "wrangler types -c wrangler.jsonc && astro sync && astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run lint && npm run typecheck",
+    "lighthouse": "npx --yes @lhci/cli@0.16.1 autorun",
     "deploy": "npm run build && wrangler deploy",
+    "deploy:preprod": "CLOUDFLARE_ENV=preprod npm run build && wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
@@ -22,7 +29,14 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript-eslint": "^8.73.0",
     "wrangler": "^4.164.0"
   },
   "engines": {
