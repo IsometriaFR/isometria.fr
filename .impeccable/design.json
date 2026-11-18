@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T00:00:00Z",
+  "title": "Design System: Isometria",
+  "source": {
+    "artifact": "https://claude.ai/artifact/6GeN6NpdfEEZfBAuugnwLB",
+    "version": "1.8"
+  },
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Sauge",
+        "canonical": "#2E6F6A",
+        "tonalRamp": [
+          "#10302D",
+          "#1B4441",
+          "#265A56",
+          "#2E6F6A",
+          "#5A9792",
+          "#8FB8B3",
+          "#DCE9E7",
+          "#F0F5F4"
+        ]
+      },
+      "primary-soft": {
+        "role": "primary",
+        "displayName": "Voile sauge",
+        "canonical": "#DCE9E7",
+        "tonalRamp": [
+          "#10302D",
+          "#1B4441",
+          "#265A56",
+          "#2E6F6A",
+          "#5A9792",
+          "#8FB8B3",
+          "#DCE9E7",
+          "#F0F5F4"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Papier",
+        "canonical": "#FEFDF9",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Carte",
+        "canonical": "#FFFFFE",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FFFFFE"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Encre",
+        "canonical": "#2B2D2B",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "text-soft": {
+        "role": "neutral",
+        "displayName": "Encre douce",
+        "canonical": "#6B6B62",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Filet",
+        "canonical": "#F1EDE0",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "appoint": {
+        "role": "tertiary",
+        "displayName": "Ocre d'appoint (schémas uniquement)",
+        "canonical": "#C4853A",
+        "tonalRamp": ["#3A2A14", "#8A5519", "#C4853A", "#E3B777", "#F6E7D2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Très grand titre d'ouverture." },
+      "h1": { "displayName": "H1", "purpose": "Titre de page." },
+      "h2": { "displayName": "H2", "purpose": "Titre de section." },
+      "h3": { "displayName": "H3", "purpose": "Sous-section." },
+      "lead": { "displayName": "Lead", "purpose": "Chapô, 580px de large au plus." },
+      "body": { "displayName": "Body", "purpose": "Texte courant, plafonné à 600px." },
+      "ui": { "displayName": "UI", "purpose": "Navigation, boutons, champs." },
+      "sm": { "displayName": "Small", "purpose": "Méta." },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Micro-étiquettes en capitales, badges, surtitres."
+      },
+      "code": { "displayName": "Code", "purpose": "Code en ligne et blocs de code." }
+    },
+    "shadows": [
+      {
+        "name": "shadow-card-hover",
+        "value": "0 2px 8px rgba(43, 45, 43, 0.06)",
+        "purpose": "La seule ombre du système : survol d'une carte."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px rgba(46, 111, 106, 0.12)",
+        "purpose": "Anneau autour d'un champ qui a le focus."
+      }
+    ],
+    "motion": [
+      { "name": "duration-ui-fast", "value": "120ms", "purpose": "Interface : survol, focus." },
+      {
+        "name": "duration-ui",
+        "value": "200ms",
+        "purpose": "Interface : ouverture, changement d'état."
+      },
+      {
+        "name": "duration-exit",
+        "value": "300ms",
+        "purpose": "Sortie d'un élément, avec ease-in."
+      },
+      {
+        "name": "duration-accent",
+        "value": "300ms",
+        "purpose": "Le mot accentué passe à la sauge, couleur seule."
+      },
+      {
+        "name": "duration-enter",
+        "value": "500ms",
+        "purpose": "Entrée d'un texte, d'un nœud, d'une carte, avec ease-out."
+      },
+      { "name": "duration-scene", "value": "600ms", "purpose": "Fondu entre deux scènes." },
+      {
+        "name": "duration-move",
+        "value": "700ms",
+        "purpose": "Déplacement d'un élément déjà à l'écran, avec ease-in-out."
+      },
+      {
+        "name": "duration-draw",
+        "value": "900ms",
+        "purpose": "Tracé d'un trait, d'un connecteur, du cube, avec ease-in-out."
+      },
+      {
+        "name": "duration-stagger",
+        "value": "80ms",
+        "purpose": "Décalage dans une série, cinq éléments au plus."
+      },
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.33, 1, 0.68, 1)",
+        "purpose": "Toutes les entrées. GSAP : power2.out."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Tracés, déplacements. GSAP : power2.inOut."
+      },
+      {
+        "name": "ease-in",
+        "value": "cubic-bezier(0.32, 0, 0.67, 0)",
+        "purpose": "Sorties. GSAP : power2.in."
+      }
+    ],
+    "strokes": [
+      { "name": "stroke-hair", "value": "0.5px", "purpose": "Filets du site." },
+      {
+        "name": "stroke-line",
+        "value": "1.5px",
+        "purpose": "Traits de schéma et pictogrammes Iconoir."
+      }
+    ],
+    "readWidths": [
+      { "name": "read-width-body", "value": "600px" },
+      { "name": "read-width-lead", "value": "580px" },
+      { "name": "read-width-hero", "value": "760px" },
+      { "name": "read-width-wide", "value": "940px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton primaire",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "L'action principale d'une surface : une seule par écran.",
+      "html": "<button class=\"ds-btn-primary\">Parlons de votre projet</button>",
+      "css": ".ds-btn-primary { background: var(--color-primary, #2E6F6A); color: #FEFDF9; font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-weight: 500; font-size: 14px; line-height: 1; padding: 11px 22px; border: 0; border-radius: 7px; cursor: pointer; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-btn-primary:hover { background: var(--color-primary-hover, #3D807A); } .ds-btn-primary:active { background: var(--color-primary-active, #265A56); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-primary, #2E6F6A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Bouton secondaire",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "L'action d'accompagnement, à côté du bouton primaire.",
+      "html": "<button class=\"ds-btn-secondary\">Voir les trois faces</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: var(--color-primary, #2E6F6A); font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-weight: 500; font-size: 14px; line-height: 1; padding: 10px 21px; border: 1px solid var(--color-primary, #2E6F6A); border-radius: 7px; cursor: pointer; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1), color 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-btn-secondary:hover { background: var(--color-primary-soft, #DCE9E7); color: var(--color-primary-active, #265A56); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--color-primary, #2E6F6A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Bouton discret",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Action secondaire en fin de bloc.",
+      "html": "<button class=\"ds-btn-ghost\">Lire la suite <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-btn-ghost { background: transparent; color: var(--color-primary, #2E6F6A); font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-weight: 500; font-size: 13px; line-height: 1; padding: 8px 12px; border: 0; border-radius: 7px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-btn-ghost:hover { background: var(--color-primary-soft, #DCE9E7); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-primary, #2E6F6A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Champ de formulaire",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ de texte avec son libellé au-dessus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Nom</span><input class=\"ds-input\" placeholder=\"Prénom Nom\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); } .ds-field-label { font-size: 12px; font-weight: 500; color: var(--color-text, #2B2D2B); } .ds-input { background: var(--color-surface-raised, #FFFFFF); color: var(--color-text, #2B2D2B); border: 0.5px solid var(--color-border-strong, #DCD6C4); border-radius: 7px; padding: 9px 12px; font: 400 14px var(--font-sans, 'Nunito Sans', system-ui, sans-serif); transition: border-color 120ms cubic-bezier(0.33, 1, 0.68, 1), box-shadow 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-input::placeholder { color: var(--color-text-muted, #ADA896); } .ds-input:focus-visible { outline: none; border: 1px solid var(--color-primary, #2E6F6A); box-shadow: 0 0 0 3px rgba(46, 111, 106, 0.12); }"
+    },
+    {
+      "name": "Carte",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Surface posée sur le fond de page, avec le mot accentué dans son titre.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card-kicker\">Face 01</span><h3 class=\"ds-card-title\">Vos devis, <span class=\"ds-accent\">prêts</span> en deux minutes.</h3><p class=\"ds-card-body\">Un filet de 0,5 px et un fond à peine plus clair que la page.</p></article>",
+      "css": ".ds-card { background: var(--color-surface, #FFFFFE); border: 0.5px solid var(--color-border, #F1EDE0); border-radius: 10px; padding: 1.5rem; max-width: 340px; transition: box-shadow 200ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-card:hover { box-shadow: 0 2px 8px rgba(43, 45, 43, 0.06); } .ds-card-kicker { display: block; font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-primary, #2E6F6A); margin-bottom: 6px; } .ds-card-title { font-family: var(--font-serif, 'IBM Plex Sans', system-ui, sans-serif); font-weight: 500; font-size: 20px; line-height: 1.3; letter-spacing: -0.005em; color: var(--color-text, #2B2D2B); margin: 0 0 6px; } .ds-accent { color: var(--color-accent-text, #2E6F6A); font-weight: 600; } .ds-card-body { font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-size: 13px; line-height: 1.55; color: var(--color-text-soft, #6B6B62); margin: 0; }"
+    },
+    {
+      "name": "Badges et étiquette technique",
+      "kind": "chip",
+      "refersTo": "badge-info",
+      "description": "Badge info, badge neutre et étiquette technique en JetBrains Mono.",
+      "html": "<span class=\"ds-badge ds-badge-info\"><span class=\"ds-dot\"></span>Disponible</span> <span class=\"ds-badge ds-badge-neutral\">Brouillon</span> <span class=\"ds-tag-tech\">astro 7.x</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; } .ds-badge-info { background: var(--color-primary-soft, #DCE9E7); color: var(--color-primary, #2E6F6A); } .ds-badge-neutral { background: var(--color-surface, #FFFFFE); color: var(--color-text-soft, #6B6B62); border: 0.5px solid var(--color-border, #F1EDE0); } .ds-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; } .ds-tag-tech { font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; text-transform: lowercase; background: var(--color-background, #FEFDF9); color: var(--color-text, #2B2D2B); border: 0.5px solid var(--color-border-strong, #DCD6C4); border-radius: 4px; padding: 3px 8px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Liens de navigation sans soulignement ; le lien actif passe en sauge et en graisse 500.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-is-active\" href=\"#\">Site web</a><a class=\"ds-nav-link\" href=\"#\">Outils internes</a><a class=\"ds-nav-link\" href=\"#\">IA</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-size: 14px; } .ds-nav-link { color: var(--color-text, #2B2D2B); font-weight: 400; text-decoration: none; transition: color 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-nav-link:hover { color: var(--color-primary, #2E6F6A); } .ds-nav-link.ds-is-active { color: var(--color-primary, #2E6F6A); font-weight: 500; } .ds-nav-link:focus-visible { outline: 2px solid var(--color-primary, #2E6F6A); outline-offset: 2px; }"
+    },
+    {
+      "name": "Lien dans le texte",
+      "kind": "custom",
+      "description": "Lien éditorial : soulignement sauge à 40 % qui passe à pleine opacité au survol.",
+      "html": "<p class=\"ds-prose\">Le code et le nom de domaine restent <a class=\"ds-link\" href=\"#\">à votre nom</a>.</p>",
+      "css": ".ds-prose { font-family: var(--font-sans, 'Nunito Sans', system-ui, sans-serif); font-size: 16px; line-height: 1.7; color: var(--color-text, #2B2D2B); margin: 0; } .ds-link { color: var(--color-primary, #2E6F6A); font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(46, 111, 106, 0.4); transition: border-color 120ms ease; } .ds-link:hover { border-bottom-color: var(--color-primary, #2E6F6A); } .ds-link:focus-visible { outline: 2px solid var(--color-primary, #2E6F6A); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Calme et construit",
+    "overview": "Isometria est une identité volontairement monochrome : une seule couleur vive, la sauge, posée sur un papier crème légèrement chaud, avec une encre qui n'est jamais un noir pur. Rien n'arrive par effet. Chaque élément est là parce qu'il est tracé, posé ou assemblé, comme le cube isométrique du logo dont tout le reste découle.\n\nLe système tient en trois contraintes. Une seule couleur vive, jamais doublée d'un second accent ni déclinée en dégradé. Trois familles typographiques, chacune tenue à un seul rôle. Un seul ornement : un mot par titre, en sauge et en graisse 600. Tout ce qui n'est pas dans le système n'existe pas.\n\nLe ton est celui d'un artisan sûr de lui : posé, précis, sans emphase. Pas de point d'exclamation, pas d'emoji, pas d'inflation marketing.",
+    "keyCharacteristics": [
+      "Monochrome sauge sur crème, fonds en aplat, aucun dégradé, aucune texture.",
+      "Surfaces empilées du plus foncé au plus clair, séparées par des filets de 0,5 px plutôt que par des ombres.",
+      "Titres en IBM Plex Sans 500, casse de phrase partout.",
+      "Trois accents sauge au plus par surface.",
+      "Projection isométrique comme signature : logo, schémas, illustrations.",
+      "Mouvement court et discret, sans rebond ni parallaxe."
+    ],
+    "rules": [
+      {
+        "name": "The Three Curves Rule",
+        "body": "Jamais de rebond, d'élastique ni de dépassement (`back`, `elastic`, `bounce`). Jamais de zoom percutant, de tremblement, de parallaxe ni de flou de mouvement.",
+        "section": "overview"
+      },
+      {
+        "name": "The Reason To Move Rule",
+        "body": "Un élément ne bouge que s'il explique quelque chose. Deux gestes ne se jouent pas en même temps sur deux éléments sans lien.",
+        "section": "overview"
+      },
+      {
+        "name": "The One Colour Rule",
+        "body": "La sauge est la seule couleur vive. Jamais de second accent de marque, jamais de dégradé.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Accents Rule",
+        "body": "Trois touches de sauge au plus par surface. Au-delà, l'accent ne désigne plus rien.",
+        "section": "colors"
+      },
+      {
+        "name": "The Never White On Sage Rule",
+        "body": "Sur un aplat sauge, le texte est crème (`on-primary`), jamais `#FFFFFF`, qui vibre contre la sauge.",
+        "section": "colors"
+      },
+      {
+        "name": "The States Stay Functional Rule",
+        "body": "Les couleurs d'état ne sortent jamais du registre de l'interface : ni illustration, ni contenu éditorial, ni bouton marketing.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ochre Stays In Diagrams Rule",
+        "body": "L'ocre ne sort pas des schémas et du motion : jamais dans un titre, un bouton, un lien ou un badge.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Plex Sans pour les titres, les citations et les chiffres mis en avant. Nunito Sans pour le corps et l'interface. JetBrains Mono pour le code, les numéros de version et les chemins de fichiers, plus une seule exception : une mesure mise en scène dans le texte (`42 ms`, `95+`). Aucune famille ne sort de son rôle.",
+        "section": "typography"
+      },
+      {
+        "name": "The Three Weights Rule",
+        "body": "Trois graisses existent : 400 (corps), 500 (titres, liens, navigation active, boutons), 600 (le mot accentué). Jamais de 700 ni de 900, qui écrasent la palette.",
+        "section": "typography"
+      },
+      {
+        "name": "The Accent Word Rule",
+        "body": "Un seul mot par titre, en sauge et en graisse 600. Jamais sur un nom générique (« site », « projet »), jamais en italique, jamais souligné, jamais dans le texte courant.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Casse de phrase partout, y compris dans les grands titres. Les capitales sont réservées aux micro-étiquettes, avec un interlettrage de 0.08em.",
+        "section": "typography"
+      },
+      {
+        "name": "The Typographic Marks Rule",
+        "body": "Apostrophe typographique `’`, guillemets français « … », tiret cadratin espacé pour les incises, espace insécable avant `;`, `:`, `?`, `!`, `%` et entre une valeur et son unité. Les nombres de un à neuf s'écrivent en lettres dans le texte ; les prix, dates, unités et statistiques toujours en chiffres.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lighter On Top Rule",
+        "body": "Les surfaces s'empilent du plus foncé au plus clair : fond, carte, surface élevée. On ne saute pas de niveau et on n'inverse jamais l'ordre.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Shadow Rule",
+        "body": "Aucune ombre au repos, aucune ombre sur un bouton, aucune ombre intérieure. Aucun panneau flouté ni voile translucide ; la seule transparence est le soulignement des liens.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do passer par les tokens sémantiques (`--color-background`, `--color-text`, `--color-primary`) dans tout composant.",
+      "Do garder le site en thème clair sur toutes ses pages.",
+      "Do séparer les sections par un filet de 0,5 px et 3 à 4rem d'espace.",
+      "Do plafonner le texte courant à 600px et les sections larges à 940px.",
+      "Do signaler le survol par un changement de couleur.",
+      "Do mettre un seul mot en sauge et en graisse 600 dans un titre, quand un mot le mérite.",
+      "Do s'adresser au lecteur au vouvoiement et parler à la première personne du singulier.",
+      "Do respecter `prefers-reduced-motion` : état final affiché sans transition."
+    ],
+    "donts": [
+      "Don't ajouter une seconde couleur d'accent, ni utiliser l'ocre hors d'un schéma.",
+      "Don't poser de dégradé, de motif ou de texture sur un fond.",
+      "Don't écrire du texte en `#FFFFFF` sur un aplat sauge.",
+      "Don't utiliser les graisses 700 ou 900, ni l'italique pour mettre en valeur.",
+      "Don't écrire un titre tout en capitales ou avec une majuscule à chaque mot.",
+      "Don't ajouter d'ombre au repos, de panneau flouté ou de voile translucide.",
+      "Don't signaler un survol par un fondu d'opacité, ni soulever un élément de plus de 2px.",
+      "Don't animer avec un rebond, un effet élastique ou une parallaxe.",
+      "Don't utiliser d'emoji ni de point d'exclamation.",
+      "Don't recadrer, recolorer, dégrader ou détourer le logo, ni placer une icône isométrique à côté de la marque à la même taille.",
+      "Don't remplir une icône : trait seul.",
+      "Don't dessiner de flèches, de légendes, de sol, de grille, d'ombre portée ou de hachures dans une illustration."
+    ]
+  }
+}

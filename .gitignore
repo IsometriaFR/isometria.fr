@@ -33,3 +33,6 @@ Thumbs.db
 .agents/
 .claude/skills/
 .lighthouseci/
+
+# impeccable : réglages propres à la machine
+.impeccable/config.local.json
