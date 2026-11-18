@@ -71,7 +71,7 @@ jobs:
 
       - name: Rapports Lighthouse
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: lighthouse-local
           path: .lighthouseci/
@@ -155,7 +155,7 @@ jobs:
 
       - name: Rapports Lighthouse
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: lighthouse-cloudflare
           path: .lighthouseci/
