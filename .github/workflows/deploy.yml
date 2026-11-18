@@ -33,7 +33,7 @@ jobs:
       name: preprod
       url: https://preprod.isometria.fr
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
@@ -86,7 +86,7 @@ jobs:
       name: production
       url: https://isometria.fr
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
