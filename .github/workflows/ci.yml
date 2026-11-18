@@ -2,7 +2,14 @@ name: CI
 
 # Quality gate sur chaque pull request et sur main :
 # format (Prettier) → lint (ESLint) → types (astro check) → build → Lighthouse.
-# Sur une PR, une fois le gate passé, une URL d'aperçu est publiée en commentaire.
+#
+# Lighthouse tourne sur un vrai environnement Cloudflare dès que c'est possible : le build préprod
+# est envoyé comme version d'aperçu du worker « isometria-preprod » (sans toucher à
+# preprod.isometria.fr), puis audité sur son URL workers.dev.
+#   - Pull request : aperçu « pr-<n> », URL et notes Lighthouse en commentaire.
+#   - Avant la PR  : lancer ce workflow à la main sur la branche (Actions → CI → Run workflow,
+#     ou `gh workflow run CI --ref ma-branche`) : aperçu « <branche> », URL dans le résumé du run.
+# Sinon (push sur main, forks, Dependabot, Cloudflare non configuré) : Lighthouse sur le build local.
 on:
   pull_request:
   push:
@@ -11,6 +18,14 @@ on:
 
 permissions:
   contents: read
+
+env:
+  # Les secrets ne sont exposés ni aux forks ni à Dependabot : pas d'aperçu Cloudflare pour eux.
+  CLOUDFLARE_PREVIEW: >-
+    ${{ vars.CLOUDFLARE_ACCOUNT_ID != '' && github.actor != 'dependabot[bot]' &&
+    (github.event_name == 'workflow_dispatch' ||
+    (github.event_name == 'pull_request' &&
+    github.event.pull_request.head.repo.full_name == github.repository)) }}
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -21,6 +36,8 @@ jobs:
     name: Quality gate
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    outputs:
+      cloudflare: ${{ env.CLOUDFLARE_PREVIEW }}
     steps:
       - uses: actions/checkout@v5
 
@@ -40,29 +57,33 @@ jobs:
       - name: Types + build (astro check, astro build)
         run: npm run build
 
-      - name: Lighthouse CI (mobile, médiane de 3 passes)
+      # Seulement quand le job « Aperçu Cloudflare » ne prendra pas le relais.
+      - name: Lighthouse CI sur le build local (mobile, médiane de 3 passes)
+        id: lighthouse
+        if: env.CLOUDFLARE_PREVIEW != 'true'
         run: npm run lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Résumé Lighthouse
+        if: always() && steps.lighthouse.conclusion != 'skipped'
+        run: node scripts/lighthouse-summary.mjs >> "$GITHUB_STEP_SUMMARY"
 
       - name: Rapports Lighthouse
         if: always()
         uses: actions/upload-artifact@v5
         with:
-          name: lighthouse
+          name: lighthouse-local
           path: .lighthouseci/
+          include-hidden-files: true
           if-no-files-found: ignore
 
   preview:
-    name: Aperçu Cloudflare (PR)
+    name: Aperçu Cloudflare + Lighthouse
     needs: quality
-    # Seulement pour les PR du dépôt lui-même (pas les forks) et une fois Cloudflare configuré.
-    if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      vars.CLOUDFLARE_ACCOUNT_ID != ''
+    if: needs.quality.outputs.cloudflare == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: read
       pull-requests: write
@@ -81,28 +102,47 @@ jobs:
         env:
           CLOUDFLARE_ENV: preprod
 
-      - name: Upload d'une version d'aperçu (sans la déployer)
+      - name: Envoi d'une version d'aperçu (sans la déployer)
         id: upload
+        run: node scripts/preview-upload.mjs "$PREVIEW_ALIAS"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          npx wrangler versions upload \
-            --preview-alias "pr-${{ github.event.pull_request.number }}" \
-            --message "PR #${{ github.event.pull_request.number }} @ ${GITHUB_SHA::7}" \
-            | tee upload.log
-          url=$(grep -oE 'https://pr-[a-z0-9.-]+\.workers\.dev' upload.log | head -n1)
-          echo "url=$url" >> "$GITHUB_OUTPUT"
+          PREVIEW_ALIAS: >-
+            ${{ github.event_name == 'pull_request' &&
+            format('pr-{0}', github.event.pull_request.number) || github.ref_name }}
 
-      - name: Commentaire avec l'URL d'aperçu
-        if: steps.upload.outputs.url != ''
-        uses: actions/github-script@v8
+      # Sur l'URL figée de cette version : on audite exactement ce build, servi par Cloudflare.
+      - name: Lighthouse CI sur l'aperçu Cloudflare (mobile, médiane de 3 passes)
+        run: npm run lighthouse
         env:
-          PREVIEW_URL: ${{ steps.upload.outputs.url }}
+          LHCI_URL: ${{ steps.upload.outputs.version_url }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Résumé (URL d'aperçu + notes Lighthouse)
+        if: always() && steps.upload.outputs.alias_url != ''
+        env:
+          ALIAS_URL: ${{ steps.upload.outputs.alias_url }}
+          VERSION_URL: ${{ steps.upload.outputs.version_url }}
+          SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          {
+            echo '<!-- cloudflare-preview -->'
+            echo "**Aperçu Cloudflare** : $ALIAS_URL"
+            echo
+            echo "Commit \`${SHA::7}\` — [ce build précis]($VERSION_URL) (build préprod, non indexé)."
+            echo
+            node scripts/lighthouse-summary.mjs
+          } > preview.md
+          cat preview.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commentaire sur la PR
+        if: always() && github.event_name == 'pull_request' && steps.upload.outputs.alias_url != ''
+        uses: actions/github-script@v8
         with:
           script: |
             const marker = '<!-- cloudflare-preview -->';
-            const body = `${marker}\n**Aperçu Cloudflare** : ${process.env.PREVIEW_URL}\n\nCommit \`${context.sha.slice(0, 7)}\` (build préprod, non indexé).`;
+            const body = require('node:fs').readFileSync('preview.md', 'utf8');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number });
@@ -112,3 +152,12 @@ jobs:
             } else {
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
+
+      - name: Rapports Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: lighthouse-cloudflare
+          path: .lighthouseci/
+          include-hidden-files: true
+          if-no-files-found: ignore

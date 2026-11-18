@@ -1,6 +1,7 @@
 name: Deploy
 
 # Chaque push sur main (après le quality gate) part en préprod : https://preprod.isometria.fr
+# Lighthouse audite ensuite la préprod réelle ; s'il échoue, la production n'est pas déployée.
 # La production (https://isometria.fr) suit, après approbation manuelle sur l'environnement
 # GitHub « production » (Settings → Environments → production → Required reviewers).
 on:
@@ -54,6 +55,27 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Attente de la préprod
+        run: curl -fsS -o /dev/null --retry 10 --retry-delay 3 --retry-all-errors https://preprod.isometria.fr
+
+      - name: Lighthouse CI sur la préprod (mobile, médiane de 3 passes)
+        run: npm run lighthouse
+        env:
+          LHCI_URL: https://preprod.isometria.fr
+
+      - name: Résumé Lighthouse
+        if: always()
+        run: node scripts/lighthouse-summary.mjs >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Rapports Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: lighthouse-preprod
+          path: .lighthouseci/
+          include-hidden-files: true
+          if-no-files-found: ignore
 
   production:
     name: Production

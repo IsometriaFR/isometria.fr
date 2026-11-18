@@ -30,18 +30,19 @@ Ouvrir <http://localhost:4321>.
 
 ## Scripts
 
-| Commande                 | Rôle                                                         |
-| ------------------------ | ------------------------------------------------------------ |
-| `npm run dev`            | Génère les types Cloudflare puis lance `astro dev` (workerd) |
-| `npm run build`          | `wrangler types` + `astro check` + `astro build`             |
-| `npm run preview`        | Build + `astro preview` (workerd, parité production)         |
-| `npm run typecheck`      | `wrangler types` + `astro sync` + `astro check`              |
-| `npm run lint`           | ESLint (TypeScript + Astro)                                  |
-| `npm run format`         | Prettier en écriture (`format:check` pour vérifier)          |
-| `npm run check`          | Format + lint + types : le quality gate local                |
-| `npm run lighthouse`     | Lighthouse CI sur `dist/client` (après `npm run build`)      |
-| `npm run deploy`         | Build + `wrangler deploy` vers la production                 |
-| `npm run deploy:preprod` | Build préprod + `wrangler deploy` vers la préprod            |
+| Commande                     | Rôle                                                          |
+| ---------------------------- | ------------------------------------------------------------- |
+| `npm run dev`                | Génère les types Cloudflare puis lance `astro dev` (workerd)  |
+| `npm run build`              | `wrangler types` + `astro check` + `astro build`              |
+| `npm run preview`            | Build + `astro preview` (workerd, parité production)          |
+| `npm run typecheck`          | `wrangler types` + `astro sync` + `astro check`               |
+| `npm run lint`               | ESLint (TypeScript + Astro)                                   |
+| `npm run format`             | Prettier en écriture (`format:check` pour vérifier)           |
+| `npm run check`              | Format + lint + types : le quality gate local                 |
+| `npm run lighthouse`         | Lighthouse CI sur `dist/client`, ou sur `LHCI_URL` si définie |
+| `npm run preview:cloudflare` | Build préprod + version d'aperçu Cloudflare de la branche     |
+| `npm run deploy`             | Build + `wrangler deploy` vers la production                  |
+| `npm run deploy:preprod`     | Build préprod + `wrangler deploy` vers la préprod             |
 
 ## Structure
 
@@ -105,8 +106,22 @@ Ouvrir <http://localhost:4321>.
 
 Deux workflows GitHub Actions :
 
-- **`CI`** (`.github/workflows/ci.yml`), sur chaque pull request et chaque push sur `main` : Prettier, ESLint, `astro check`, `astro build`, puis **Lighthouse CI** (mobile, médiane de 3 passes). Seuils bloquants dans `lighthouserc.json` : performance ≥ 90, accessibilité, bonnes pratiques et SEO ≥ 95. Sur une PR, une fois le gate passé, une **URL d'aperçu** (`pr-<n>-isometria-preprod.<compte>.workers.dev`) est postée en commentaire.
-- **`Deploy`** (`.github/workflows/deploy.yml`), après un `CI` vert sur `main` : **préprod** automatique (`https://preprod.isometria.fr`), puis **production** (`https://isometria.fr`) après approbation sur l'environnement GitHub `production`.
+- **`CI`** (`.github/workflows/ci.yml`), sur chaque pull request et chaque push sur `main` : Prettier, ESLint, `astro check`, `astro build`, puis **Lighthouse CI** (mobile, médiane de 3 passes). Seuils bloquants dans `lighthouserc.cjs` : performance ≥ 90, accessibilité, bonnes pratiques et SEO ≥ 95.
+- **`Deploy`** (`.github/workflows/deploy.yml`), après un `CI` vert sur `main` : **préprod** automatique (`https://preprod.isometria.fr`), Lighthouse sur la préprod réelle, puis **production** (`https://isometria.fr`) après approbation sur l'environnement GitHub `production`.
+
+### Aperçu Cloudflare d'une branche
+
+Lighthouse tourne sur un vrai environnement Cloudflare, pas seulement sur le build local : le build préprod est envoyé comme **version d'aperçu** du worker `isometria-preprod` (même configuration que la préprod, sans modifier ce que sert `preprod.isometria.fr`), puis audité sur son URL `workers.dev`.
+
+| Quand               | Comment                                                                | URL                                                |
+| ------------------- | ---------------------------------------------------------------------- | -------------------------------------------------- |
+| Pendant une PR      | automatique à chaque push                                              | `pr-<n>-isometria-preprod.<compte>.workers.dev`    |
+| Avant la PR (CI)    | `gh workflow run CI --ref ma-branche` (ou Actions → CI → Run workflow) | `<branche>-isometria-preprod.<compte>.workers.dev` |
+| Avant la PR (local) | `npm run preview:cloudflare` (après `npx wrangler login`)              | idem                                               |
+
+Sur une PR, l'URL et les notes Lighthouse sont postées en commentaire ; pour un lancement manuel, elles sont dans le résumé du run. En local, la commande affiche l'URL et la ligne `LHCI_URL=… npm run lighthouse` à lancer pour l'auditer.
+
+Sans accès aux secrets Cloudflare (forks, Dependabot) et sur `main`, Lighthouse audite le build local. L'audit d'indexabilité est ignoré sur les aperçus et la préprod, volontairement en `noindex`.
 
 | Environnement | Worker              | Domaine                | Build                                  |
 | ------------- | ------------------- | ---------------------- | -------------------------------------- |
