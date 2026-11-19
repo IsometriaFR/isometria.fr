@@ -1,0 +1,95 @@
+<!-- @dsCard group="Brand" name="Brand · Logo" subtitle="Isometria wordmark + isometric mark, on cream / sage / sunken" width=700 height=460 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Logo</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); }
+  .card {
+    box-sizing: border-box; width: 668px;
+    padding: 24px;
+    background: var(--color-surface);
+    border: var(--border-hair);
+    border-radius: var(--radius-lg);
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 14px;
+  }
+  .lockup {
+    display: flex; align-items: center; justify-content: center;
+    padding: 22px 24px;
+    border-radius: var(--radius-md);
+    border: var(--border-hair);
+    min-height: 96px;
+  }
+  .lockup.cream  { background: var(--color-background); }
+  .lockup.white  { background: var(--color-cream-50); }
+  .lockup.sunken { background: var(--color-surface-sunken); }
+  .lockup.sage   { background: var(--color-primary); border-color: var(--color-primary-active); }
+
+  .wordmark { height: 28px; width: auto; display: block; }
+  .mark { height: 40px; width: auto; display: block; }
+
+  .meta {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    padding-top: 14px;
+    border-top: var(--border-hair);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 18px;
+    font-size: var(--text-xs);
+    color: var(--color-text-soft);
+  }
+  .meta dt { font-family: var(--font-mono); color: var(--color-text-muted); white-space: nowrap; }
+  .meta dd { margin: 0; max-width: 56ch; }
+  .meta dd code {
+    font-size: 11.5px;
+    padding: 1px 5px;
+  }
+
+  .eyebrow {
+    grid-column: 1 / -1;
+    font-family: var(--font-sans);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-label);
+    color: var(--color-text-muted);
+    margin: 4px 2px -4px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="eyebrow">Lockup — wordmark + mark</div>
+  <div class="lockup cream">
+    <img class="wordmark" src="../../assets/Logos/isometria-wordmark.svg" alt="Isometria">
+  </div>
+  <div class="lockup sage">
+    <img class="wordmark" src="../../assets/Logos/isometria-wordmark-inverted.svg" alt="Isometria">
+  </div>
+
+  <div class="eyebrow">Mark — cube isométrique</div>
+  <div class="lockup white">
+    <img class="mark" src="../../assets/Logos/isometria-mark.svg" alt="Mark Isometria">
+  </div>
+  <div class="lockup sunken">
+    <img class="mark" src="../../assets/Logos/isometria-mark.svg" alt="Mark Isometria">
+  </div>
+
+  <dl class="meta">
+    <dt>Mark</dt>
+    <dd>Cube isométrique sur 32×32 : contour hexagonal 2px, arêtes intérieures 0,85px dans la même encre — légères par l’épaisseur, jamais par la transparence. <code>teal-600</code> sur cream, <code>cream-100</code> sur sauge.</dd>
+    <dt>Wordmark</dt>
+    <dd>Space Grotesk Medium figé en SVG outlines — indépendant du système typographique (Plex / Nunito / Mono).</dd>
+    <dt>Couleur</dt>
+    <dd>Mark <code>#2E6F6A</code> · Texte <code>cream-900</code> · Inversion <code>cream-100</code> sur sauge ; jamais <code>#FFFFFF</code>.</dd>
+    <dt>Clearspace</dt>
+    <dd>Au moins la hauteur de la x-height autour du lockup. Pas de gradient, pas de contour, pas de recadrage du mark.</dd>
+  </dl>
+
+</div>
+</body>
+</html>

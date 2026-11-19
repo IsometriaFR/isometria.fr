@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T22:10:00Z",
+  "title": "Design System: Isometria",
+  "source": {
+    "artifact": "https://claude.ai/artifact/6GeN6NpdfEEZfBAuugnwLB",
+    "version": "2.0"
+  },
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Sauge",
+        "canonical": "#2E6F6A",
+        "tonalRamp": [
+          "#10302D",
+          "#1B4441",
+          "#265A56",
+          "#2E6F6A",
+          "#5A9792",
+          "#8FB8B3",
+          "#DCE9E7",
+          "#F0F5F4"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Papier",
+        "canonical": "#FEFDF9",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Encre",
+        "canonical": "#2B2D2B",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "text-soft": {
+        "role": "neutral",
+        "displayName": "Encre douce",
+        "canonical": "#6B6B62",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "action": {
+        "role": "neutral",
+        "displayName": "Encre d'action",
+        "canonical": "#2B2D2B",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "text-body": {
+        "role": "neutral",
+        "displayName": "Encre de lecture",
+        "canonical": "#55554E",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      },
+      "line-faint": {
+        "role": "neutral",
+        "displayName": "Trait pâle",
+        "canonical": "#E2DED1",
+        "tonalRamp": [
+          "#2B2D2B",
+          "#45453F",
+          "#6B6B62",
+          "#ADA896",
+          "#DCD6C4",
+          "#F1EDE0",
+          "#FAF7EE",
+          "#FEFDF9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "site-h1": {
+        "displayName": "Titre de page",
+        "purpose": "Un seul par page."
+      },
+      "site-h2": {
+        "displayName": "Titre de section",
+        "purpose": "Une phrase complète par section."
+      },
+      "site-lead": {
+        "displayName": "Chapô",
+        "purpose": "Sous le titre de page."
+      },
+      "site-body": {
+        "displayName": "Texte courant",
+        "purpose": "46 caractères par ligne au plus."
+      },
+      "site-button": {
+        "displayName": "Bouton",
+        "purpose": "Texte des boutons du site."
+      },
+      "site-nav": {
+        "displayName": "Menu",
+        "purpose": "Liens de l'en-tête."
+      },
+      "site-eyebrow": {
+        "displayName": "Surtitre",
+        "purpose": "Au-dessus d'un titre, en capitales."
+      },
+      "site-foot": {
+        "displayName": "Pied de page",
+        "purpose": "Ligne de signature, en capitales."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-card-hover",
+        "value": "0 2px 8px rgba(43, 45, 43, 0.06)",
+        "purpose": "La seule ombre du système : survol d'une carte."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px rgba(46, 111, 106, 0.12)",
+        "purpose": "Anneau autour d'un champ qui a le focus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "duration-ui-fast",
+        "value": "120ms",
+        "purpose": "Interface : survol, focus."
+      },
+      {
+        "name": "duration-ui",
+        "value": "200ms",
+        "purpose": "Interface : ouverture, changement d'état."
+      },
+      {
+        "name": "duration-retract",
+        "value": "450ms",
+        "purpose": "Le relief d'une face du cube rentre."
+      },
+      {
+        "name": "duration-enter",
+        "value": "500ms",
+        "purpose": "Entrée d'un texte ou d'une carte."
+      },
+      {
+        "name": "duration-anchor",
+        "value": "1400ms",
+        "purpose": "Défilement doux vers une ancre."
+      },
+      {
+        "name": "duration-relief",
+        "value": "1800ms",
+        "purpose": "Le relief d'une face du cube sort, bloc après bloc."
+      },
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.33, 1, 0.68, 1)",
+        "purpose": "Toutes les entrées. GSAP : power2.out."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Tracés, déplacements, rotation du cube. GSAP : power2.inOut."
+      },
+      {
+        "name": "ease-in",
+        "value": "cubic-bezier(0.32, 0, 0.67, 0)",
+        "purpose": "Sorties. GSAP : power2.in."
+      },
+      {
+        "name": "ease-linear",
+        "value": "linear",
+        "purpose": "Parallaxe et mouvement mécanique continu."
+      },
+      {
+        "name": "ease-soft-out",
+        "value": "cubic-bezier(0.61, 1, 0.88, 1)",
+        "purpose": "Scène du cube seulement : le cube recule. GSAP : sine.out."
+      },
+      {
+        "name": "ease-soft-in",
+        "value": "cubic-bezier(0.12, 0, 0.39, 0)",
+        "purpose": "Scène du cube seulement : le cube revient. GSAP : sine.in."
+      },
+      {
+        "name": "ease-rise",
+        "value": "cubic-bezier(0.5, 1, 0.89, 1)",
+        "purpose": "Scène du cube seulement : le relief sort. GSAP : power1.out."
+      },
+      {
+        "name": "scroll-scrub-cube",
+        "value": "0.6s",
+        "purpose": "Retard de la timeline du cube sur le défilement."
+      },
+      {
+        "name": "parallax-copy",
+        "value": "70px",
+        "purpose": "Colonne de texte : de +70 px à −70 px sur la traversée."
+      }
+    ],
+    "strokes": [
+      {
+        "name": "stroke-rule",
+        "value": "1px",
+        "purpose": "Filets de page, contour du bouton secondaire, annotations."
+      },
+      {
+        "name": "stroke-hair",
+        "value": "0.5px",
+        "purpose": "Cartes, champs, badges."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "cube-breakpoint",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "L'action principale, une seule par écran, en encre.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Parlons de votre projet</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 10px; background: #2B2D2B; color: #FFFFFF; font: 600 16px/1 var(--font-plex, 'IBM Plex Sans'), system-ui, sans-serif; padding: 15px 22px; border-radius: 7px; text-decoration: none; border: 0; cursor: pointer; } .ds-btn:hover { background: #1F211F; } .ds-btn:focus-visible { outline: 2px solid #2E6F6A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Bouton secondaire",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Accompagne le bouton principal.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Voir les trois faces</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #2B2D2B; font: 600 16px/1 var(--font-plex, 'IBM Plex Sans'), system-ui, sans-serif; padding: 15px 22px; border-radius: 7px; text-decoration: none; box-shadow: inset 0 0 0 1px #CBC6B5; cursor: pointer; } .ds-btn-outline:focus-visible { outline: 2px solid #2E6F6A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Menu",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Liens de l'en-tête, sauge au survol.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Site web</a><a href=\"#\">Outils internes</a><a href=\"#\">IA</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 26px; font: 500 14px/1 var(--font-plex, 'IBM Plex Sans'), system-ui, sans-serif; color: #55554E; } .ds-nav a { color: inherit; text-decoration: none; } .ds-nav a:hover, .ds-nav a:focus-visible { color: #2E6F6A; } .ds-nav a:focus-visible { outline: 2px solid #2E6F6A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Bloc de section",
+      "kind": "custom",
+      "description": "Surtitre, titre, paragraphe et liste de trois faits.",
+      "html": "<div class=\"ds-copy\"><span class=\"ds-eyebrow\"><b>Face 01</b> Site web</span><h2 class=\"ds-h2\">Votre vitrine, ouverte même quand l’atelier est fermé.</h2><p class=\"ds-p\">Je conçois un site clair et rapide qui montre votre savoir-faire.</p><ul class=\"ds-facts\"><li><span>01</span>Devis et rendez-vous demandés en ligne</li><li><span>02</span>Des contenus que vous modifiez vous-même</li><li><span>03</span>Code et nom de domaine à votre nom</li></ul></div>",
+      "css": ".ds-copy { display: grid; gap: 18px; max-width: 466px; color: #55554E; font: 400 17px/1.65 var(--font-nunito, 'Nunito Sans'), system-ui, sans-serif; } .ds-eyebrow { font: 500 12px/1.3 var(--font-jet, 'JetBrains Mono'), ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B62; display: flex; gap: 10px; } .ds-eyebrow b { font-weight: 500; color: #2E6F6A; } .ds-h2 { margin: 0; font: 600 34px/1.12 var(--font-plex, 'IBM Plex Sans'), system-ui, sans-serif; letter-spacing: -0.015em; color: #2B2D2B; text-wrap: balance; } .ds-p { margin: 0; max-width: 46ch; } .ds-facts { list-style: none; margin: 6px 0 0; padding: 0; display: grid; border-top: 1px solid #E2DED1; } .ds-facts li { display: grid; grid-template-columns: 44px 1fr; gap: 10px; padding: 11px 0; border-bottom: 1px solid #E2DED1; font-size: 16px; } .ds-facts li span { font: 500 12px/1.9 var(--font-jet, 'JetBrains Mono'), ui-monospace, monospace; color: #6B6B62; }"
+    },
+    {
+      "name": "Pied de page",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Ligne de signature en JetBrains Mono sous un filet de 1 px.",
+      "html": "<footer class=\"ds-foot\"><span>© 2026 ISOMETRIA</span><span>SITES · OUTILS INTERNES · IA</span></footer>",
+      "css": ".ds-foot { border-top: 1px solid #E2DED1; padding: 26px 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 500 12px/1.4 var(--font-jet, 'JetBrains Mono'), ui-monospace, monospace; color: #6B6B62; letter-spacing: 0.04em; }"
+    },
+    {
+      "name": "Champ de formulaire",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Pour le futur formulaire de contact.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Nom</span><input class=\"ds-input\" placeholder=\"Prénom Nom\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-nunito, 'Nunito Sans'), system-ui, sans-serif; } .ds-field-label { font-size: 12px; font-weight: 500; color: #2B2D2B; } .ds-input { background: #FFFFFF; color: #2B2D2B; border: 0.5px solid #DCD6C4; border-radius: 7px; padding: 9px 12px; font: 400 14px var(--font-nunito, 'Nunito Sans'), system-ui, sans-serif; } .ds-input::placeholder { color: #ADA896; } .ds-input:focus-visible { outline: none; border: 1px solid #2E6F6A; box-shadow: 0 0 0 3px rgba(46, 111, 106, 0.12); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Calme et construit",
+    "overview": "Depuis la version 2.0, la page d'accueil en ligne est la norme du site. Tout y part du cube isométrique du logo : il tourne quand le lecteur fait défiler la page et sort une face par offre, chacune dessinée comme un plan en relief. Autour de lui, la page parle le langage d'un plan d'atelier : papier crème, encre, une seule couleur vive, la sauge, et des annotations en caractères à chasse fixe.\n\nRien n'arrive par effet. Chaque élément est tracé, posé ou assemblé, et rien ne bouge si le lecteur ne fait pas défiler, à part une vie d'ambiance très légère. Le ton est celui d'un artisan sûr de lui : posé, précis, sans emphase.",
+    "keyCharacteristics": [
+      "Papier crème en aplat, encre pour les titres et les boutons, sauge pour le cube et les repères.",
+      "Une page en cinq temps d'une hauteur d'écran chacun, le texte d'un côté, le cube de l'autre.",
+      "Titres en IBM Plex Sans 600, texte en Nunito Sans, voix « plan » en JetBrains Mono.",
+      "Filets de page de 1 px, aucune ombre, aucun dégradé.",
+      "Une seule scène animée, celle du cube, pilotée par le défilement."
+    ],
+    "rules": [
+      {
+        "name": "The One Scene Rule",
+        "body": "Seul le cube de l'accueil tourne, et seul l'accueil a du parallaxe. Aucune autre page ne reprend la scène.",
+        "section": "overview"
+      },
+      {
+        "name": "The No Bounce Rule",
+        "body": "Jamais de rebond, d'élastique ni de dépassement. Jamais de zoom percutant, de halo, de particules, ni d'entrée en diagonale.",
+        "section": "overview"
+      },
+      {
+        "name": "The Reader Drives Rule",
+        "body": "Le mouvement répond au défilement du lecteur ou explique quelque chose. Ce qui boucle s'arrête hors écran.",
+        "section": "overview"
+      },
+      {
+        "name": "The One Colour Rule",
+        "body": "La sauge est la seule couleur vive. Jamais de second accent, jamais de dégradé. L'ocre d'appoint reste dans les schémas.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sage Marks Rule",
+        "body": "Sur le site, la sauge désigne : elle appartient au cube et aux repères. Elle ne remplit jamais un bouton.",
+        "section": "colors"
+      },
+      {
+        "name": "The White On Ink Only Rule",
+        "body": "Le blanc pur est permis sur l'aplat encre du bouton principal, et nulle part ailleurs. Sur un aplat sauge, le texte est crème.",
+        "section": "colors"
+      },
+      {
+        "name": "The Shared Pencil Rule",
+        "body": "Les trois gris de trait du site sont ceux des illustrations : la page et les dessins partagent la même mine.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Plex Sans pour les titres, les boutons et le menu. Nunito Sans pour tout ce qui se lit. JetBrains Mono pour le code et pour la voix du plan : surtitres, numéros, annotations, pied de page. Jamais une phrase de texte courant en JetBrains Mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Three Weights Rule",
+        "body": "400 pour le texte, 500 pour le menu et les étiquettes, 600 pour les titres et les boutons. Jamais de 700.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Casse de phrase dans les titres et le texte. Les capitales sont réservées aux micro-étiquettes en JetBrains Mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Accent Word Rule",
+        "body": "Les titres sont déjà en 600 : un mot accentué ne s'y distingue que par la couleur sauge. L'accueil n'en utilise aucun ; n'en ajoutez pas sans raison, et jamais plus d'un par titre.",
+        "section": "typography"
+      },
+      {
+        "name": "The Typographic Marks Rule",
+        "body": "Apostrophe typographique `’`, guillemets français « … », espace insécable avant `;`, `:`, `?`, `!`, `%`. Les nombres de un à neuf en lettres dans le texte.",
+        "section": "typography"
+      },
+      {
+        "name": "The Depth Is Drawn Rule",
+        "body": "Le volume se dessine, il ne se simule pas : pas d'ombre portée, pas de dégradé, pas de flou.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do construire toute nouvelle page du site d'après la page d'accueil : mêmes boutons, mêmes titres, même grille.",
+      "Do garder un seul bouton principal par écran, en encre.",
+      "Do placer le texte à l'opposé du cube, sur 5 colonnes.",
+      "Do écrire à la première personne du singulier et au vouvoiement.",
+      "Do garder le contour de focus de 2px sauge sur tout lien et tout bouton.",
+      "Do respecter `prefers-reduced-motion`.",
+      "Do tenir le budget Lighthouse : performance à 90 ou plus, accessibilité, bonnes pratiques et SEO à 95 ou plus."
+    ],
+    "donts": [
+      "Don't remplir un bouton du site en sauge, ni écrire en blanc sur un aplat sauge.",
+      "Don't mettre un titre en graisse 500 ou 700.",
+      "Don't écrire une phrase de texte courant en JetBrains Mono.",
+      "Don't élargir une section au-delà de 1200px.",
+      "Don't fixer l'en-tête en haut de l'écran.",
+      "Don't ajouter une quatrième face, ni reprendre la scène du cube sur une autre page.",
+      "Don't ajouter d'ombre, de dégradé, de halo ou de particules.",
+      "Don't épingler ou retenir la page pendant le défilement.",
+      "Don't utiliser d'emoji ni de point d'exclamation.",
+      "Don't montrer une réalisation, un témoignage ou un chiffre qui n'existe pas."
+    ]
+  }
+}

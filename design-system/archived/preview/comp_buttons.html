@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Buttons" subtitle="Primary / secondary / ghost + states" viewport="700x230" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: var(--font-sans); }
+  .card { box-sizing: border-box; width: 668px; padding: 24px; background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px; }
+  h4 { margin: 0 0 16px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--color-text); letter-spacing: -0.005em; }
+  .row { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+  .btn { font-family: "Nunito Sans", sans-serif; font-weight: 500; font-size: 14px; padding: 11px 22px; border-radius: 8px; border: 0; cursor: pointer; line-height: 1; display: inline-flex; align-items: center; gap: 8px; }
+  .primary { background: #2E6F6A; color: #FEFDF9; }
+  .primary-hover { background: #3D807A; color: #FEFDF9; }
+  .primary-active { background: #265A56; color: #FEFDF9; }
+  .secondary { background: transparent; color: #2E6F6A; border: 1px solid #2E6F6A; padding: 10px 21px; }
+  .secondary-hover { background: #DCE9E7; color: #265A56; border: 1px solid #2E6F6A; padding: 10px 21px; }
+  .ghost { background: transparent; color: #2E6F6A; font-size: 13px; padding: 8px 12px; }
+  .label { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--color-text-soft); min-width: 120px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Boutons</h4>
+  <div class="row">
+    <span class="label">primary</span>
+    <button class="btn primary">Discuter du projet</button>
+    <button class="btn primary-hover">hover</button>
+    <button class="btn primary-active">active</button>
+  </div>
+  <div class="row">
+    <span class="label">secondary</span>
+    <button class="btn secondary">Voir les services</button>
+    <button class="btn secondary-hover">hover</button>
+  </div>
+  <div class="row">
+    <span class="label">ghost</span>
+    <button class="btn ghost">Lire la suite <span style="font-size:11px;">↗</span></button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- @dsCard group="Components" name="Badges & tags" subtitle="Info / neutral pills + mono tech tags" width=700 height=200 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Badges & tags</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: var(--font-sans); }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px; }
+  h4 { margin: 0 0 14px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--color-text); letter-spacing: -0.005em; }
+  .row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+  .label { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--color-text-soft); min-width: 92px; }
+  .badge-info { background: #DCE9E7; color: #2E6F6A; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
+  .badge-neutral { background: #FFFFFE; color: #6B6B62; border: 0.5px solid #F1EDE0; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .tag-tech { background: #FEFDF9; color: #2B2D2B; border: 0.5px solid #DCD6C4; font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 3px 8px; border-radius: 4px; text-transform: lowercase; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Badges & tags</h4>
+  <div class="row">
+    <span class="label">info</span>
+    <span class="badge-info"><span class="dot"></span>Disponible</span>
+    <span class="badge-info">Nouveau</span>
+  </div>
+  <div class="row">
+    <span class="label">neutral</span>
+    <span class="badge-neutral"><span class="dot"></span>Brouillon</span>
+    <span class="badge-neutral">Archivé</span>
+  </div>
+  <div class="row">
+    <span class="label">tag-tech</span>
+    <span class="tag-tech">astro 5.x</span>
+    <span class="tag-tech">tauri v2</span>
+    <span class="tag-tech">spring boot</span>
+    <span class="tag-tech">postgres</span>
+  </div>
+</div>
+</body>
+</html>

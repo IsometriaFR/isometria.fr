@@ -1,0 +1,68 @@
+<!-- @dsCard height=336 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Cover</title>
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-background); }
+  .cover { position: relative; width: 960px; height: 336px; overflow: hidden; background: var(--color-background); }
+  .cover svg { position: absolute; left: 0; top: 0; }
+  .blk { rx: var(--radius-lg); }
+  .teal600 { fill: var(--color-teal-600); }
+  .teal900 { fill: var(--color-teal-900); }
+  .teal200 { fill: var(--color-teal-200); }
+  .ink900 { fill: var(--color-cream-900); }
+  .hex { fill: none; stroke-width: 2; stroke-linejoin: round; }
+  .hex.cut { stroke: var(--color-cream-200); }
+  .hex.ink { stroke: var(--color-teal-600); }
+  .edge { fill: none; stroke-width: 0.9; stroke-linecap: round; }
+  .edge.cut { stroke: var(--color-cream-200); }
+  .edge.ink { stroke: var(--color-teal-600); }
+  .name { position: absolute; left: 24px; top: 160px; font-family: var(--font-serif); font-weight: var(--fw-medium); font-size: 64px; line-height: 0.95; letter-spacing: var(--ls-display); color: var(--color-text); white-space: nowrap; }
+  .tagline { position: absolute; left: 24px; top: 290px; max-width: 440px; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: var(--color-text-soft); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <svg width="960" height="336" viewBox="0 0 960 336" aria-hidden="true">
+    <!--
+      blocks: color-teal-600 448×104, color-teal-900 184×104, color-teal-200 160×104, color-cream-900 96×104 — brand teal leads, deep teal and ink, one tint
+      arrangement: a strip of unequal bands across the top (band skeleton: the two-line name is wider than the 440px zone)
+      pattern: literal motif — the isometric cube of the mark, outlined with its light inner edges, one row at a 48px pitch; the brand is named for that isometric projection
+      scales: insets space-6 (24px), gaps space-2 (8px), pitch space-12 (48px), name a space-8 (32px) step below the band; corners radius-lg (10px)
+    -->
+    <rect class="blk teal600" x="24" y="24" width="448" height="104"/>
+    <rect class="blk teal900" x="480" y="24" width="184" height="104"/>
+    <rect class="blk teal200" x="672" y="24" width="160" height="104"/>
+    <rect class="blk ink900" x="840" y="24" width="96" height="104"/>
+    <path class="edge cut" d="M64.000,76.000L46.679,66.000M64.000,76.000L81.321,66.000M64.000,76.000V96.000"/>
+    <polygon class="hex cut" points="64.000,56.000 81.321,66.000 81.321,86.000 64.000,96.000 46.679,86.000 46.679,66.000"/>
+    <path class="edge cut" d="M112.000,76.000L94.679,66.000M112.000,76.000L129.321,66.000M112.000,76.000V96.000"/>
+    <polygon class="hex cut" points="112.000,56.000 129.321,66.000 129.321,86.000 112.000,96.000 94.679,86.000 94.679,66.000"/>
+    <path class="edge cut" d="M160.000,76.000L142.679,66.000M160.000,76.000L177.321,66.000M160.000,76.000V96.000"/>
+    <polygon class="hex cut" points="160.000,56.000 177.321,66.000 177.321,86.000 160.000,96.000 142.679,86.000 142.679,66.000"/>
+    <path class="edge cut" d="M208.000,76.000L190.679,66.000M208.000,76.000L225.321,66.000M208.000,76.000V96.000"/>
+    <polygon class="hex cut" points="208.000,56.000 225.321,66.000 225.321,86.000 208.000,96.000 190.679,86.000 190.679,66.000"/>
+    <path class="edge cut" d="M256.000,76.000L238.679,66.000M256.000,76.000L273.321,66.000M256.000,76.000V96.000"/>
+    <polygon class="hex cut" points="256.000,56.000 273.321,66.000 273.321,86.000 256.000,96.000 238.679,86.000 238.679,66.000"/>
+    <path class="edge cut" d="M304.000,76.000L286.679,66.000M304.000,76.000L321.321,66.000M304.000,76.000V96.000"/>
+    <polygon class="hex cut" points="304.000,56.000 321.321,66.000 321.321,86.000 304.000,96.000 286.679,86.000 286.679,66.000"/>
+    <path class="edge cut" d="M352.000,76.000L334.679,66.000M352.000,76.000L369.321,66.000M352.000,76.000V96.000"/>
+    <polygon class="hex cut" points="352.000,56.000 369.321,66.000 369.321,86.000 352.000,96.000 334.679,86.000 334.679,66.000"/>
+    <path class="edge cut" d="M400.000,76.000L382.679,66.000M400.000,76.000L417.321,66.000M400.000,76.000V96.000"/>
+    <polygon class="hex cut" points="400.000,56.000 417.321,66.000 417.321,86.000 400.000,96.000 382.679,86.000 382.679,66.000"/>
+    <path class="edge cut" d="M448.000,76.000L430.679,66.000M448.000,76.000L465.321,66.000M448.000,76.000V96.000"/>
+    <polygon class="hex cut" points="448.000,56.000 465.321,66.000 465.321,86.000 448.000,96.000 430.679,86.000 430.679,66.000"/>
+    <path class="edge ink" d="M696.000,76.000L678.679,66.000M696.000,76.000L713.321,66.000M696.000,76.000V96.000"/>
+    <polygon class="hex ink" points="696.000,56.000 713.321,66.000 713.321,86.000 696.000,96.000 678.679,86.000 678.679,66.000"/>
+    <path class="edge ink" d="M744.000,76.000L726.679,66.000M744.000,76.000L761.321,66.000M744.000,76.000V96.000"/>
+    <polygon class="hex ink" points="744.000,56.000 761.321,66.000 761.321,86.000 744.000,96.000 726.679,86.000 726.679,66.000"/>
+    <path class="edge ink" d="M792.000,76.000L774.679,66.000M792.000,76.000L809.321,66.000M792.000,76.000V96.000"/>
+    <polygon class="hex ink" points="792.000,56.000 809.321,66.000 809.321,86.000 792.000,96.000 774.679,86.000 774.679,66.000"/>
+  </svg>
+  <div class="name">Isometria —<br>Design System</div>
+  <div class="tagline">Le web artisanal, avec des racines.</div>
+</div>
+</body>
+</html>

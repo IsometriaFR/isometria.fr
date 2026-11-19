@@ -1,0 +1,279 @@
+/* ============================================================
+   Isometria — Core tokens
+   Colors + type + semantic variables
+   Version 1.2 · May 2026
+   ------------------------------------------------------------
+   v1.2 — Pivot brand: Arborescence Digital → Isometria.
+          Logo wording « feuille » → « projection isométrique ».
+          No color, type, layout or component token changed.
+          Type system stays IBM Plex Sans / Nunito Sans /
+          JetBrains Mono. The logo uses Space Grotesk Medium
+          in a frozen SVG, independent of this system.
+   v1.1 — IBM Plex Sans replaces Kreon for headings.
+   v1.0 — Initial system.
+   ============================================================ */
+
+/* -- Webfonts --
+   IBM Plex Sans + JetBrains Mono: Google Fonts (see @import below)
+   Nunito Sans: self-hosted variable font (uploaded) */
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("fonts/NunitoSans-VariableFont_YTLC_opsz_wdth_wght.ttf") format("truetype-variations"),
+       url("fonts/NunitoSans-VariableFont_YTLC_opsz_wdth_wght.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("fonts/NunitoSans-Italic-VariableFont_YTLC_opsz_wdth_wght.ttf") format("truetype-variations"),
+       url("fonts/NunitoSans-Italic-VariableFont_YTLC_opsz_wdth_wght.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+:root {
+  /* =========================================================
+     COLOR — Teal sauge (primary)
+     ========================================================= */
+  --color-teal-50:  #F0F5F4;
+  --color-teal-100: #DCE9E7;
+  --color-teal-200: #B9D3D0;
+  --color-teal-300: #8FB8B3;
+  --color-teal-400: #5A9792;
+  --color-teal-500: #3D807A;
+  --color-teal-600: #2E6F6A;
+  --color-teal-700: #265A56;
+  --color-teal-800: #1B4441;
+  --color-teal-900: #10302D;
+
+  /* =========================================================
+     COLOR — Crème (neutrals / ink) — lightened v1.2
+     ========================================================= */
+  --color-cream-50:  #FFFFFF;
+  --color-cream-100: #FFFFFE;
+  --color-cream-200: #FEFDF9;
+  --color-cream-300: #FAF7EE;
+  --color-cream-400: #F1EDE0;
+  --color-cream-500: #DCD6C4;
+  --color-cream-600: #ADA896;
+  --color-cream-700: #6B6B62;
+  --color-cream-800: #45453F;
+  --color-cream-900: #2B2D2B;
+
+  /* =========================================================
+     COLOR — Semantic working tokens
+     ========================================================= */
+  --color-background:       var(--color-cream-200);
+  --color-surface:          var(--color-cream-100);
+  --color-surface-raised:   var(--color-cream-50);
+  --color-surface-sunken:   var(--color-cream-300);
+
+  --color-border:           var(--color-cream-400);
+  --color-border-strong:    var(--color-cream-500);
+
+  --color-text:             var(--color-cream-900);
+  --color-text-soft:        var(--color-cream-700);
+  --color-text-muted:       var(--color-cream-600);
+
+  --color-primary:          var(--color-teal-600);
+  --color-primary-hover:    var(--color-teal-500);
+  --color-primary-active:   var(--color-teal-700);
+  --color-primary-soft:     var(--color-teal-100);
+  --color-accent-text:      var(--color-teal-600);
+
+  /* =========================================================
+     COLOR — System states
+     (utility only — NEVER editorial)
+     ========================================================= */
+  --color-success-bg:   #EAF2E4;
+  --color-success-text: #3B6D11;
+  --color-warning-bg:   #FAEEDA;
+  --color-warning-text: #854F0B;
+  --color-danger-bg:    #FCEBEB;
+  --color-danger-text:  #A32D2D;
+  --color-info-bg:      var(--color-teal-100);
+  --color-info-text:    var(--color-teal-700);
+
+  /* =========================================================
+     TYPE — families
+     ========================================================= */
+  --font-serif: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;  /* titres */
+  --font-sans:  "Nunito Sans", system-ui, -apple-system, sans-serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* =========================================================
+     TYPE — scale
+     ========================================================= */
+  --text-2xs:     11px;
+  --text-xs:      12px;
+  --text-sm:      13px;
+  --text-base:    14px;
+  --text-body:    16px;
+  --text-lead:    18px;
+  --text-h3:      20px;
+  --text-h2-sm:   24px;
+  --text-h2:      28px;
+  --text-h2-lg:   32px;
+  --text-h1-sm:   36px;
+  --text-h1:      42px;
+  --text-display: 56px;
+
+  /* line-heights */
+  --lh-tight:   1.1;
+  --lh-title:   1.25;
+  --lh-snug:    1.3;
+  --lh-normal:  1.55;
+  --lh-body:    1.7;
+
+  /* weights — only THREE in the entire system */
+  --fw-regular: 400;  /* body */
+  --fw-medium:  500;  /* h1/h2/h3, links, active nav, buttons */
+  --fw-accent:  600;  /* the editorial accent word (signature) */
+
+  /* letter-spacing — IBM Plex Sans tightens at large sizes */
+  --ls-h3:      -0.005em;
+  --ls-h2:      -0.015em;
+  --ls-h1:      -0.02em;
+  --ls-display: -0.025em;
+  --ls-label:   0.08em;  /* uppercase badges, eyebrows */
+
+  /* =========================================================
+     LAYOUT — radii, borders, shadows, reading widths
+     ========================================================= */
+  --radius-sm:  4px;
+  --radius-md:  7px;
+  --radius-lg:  10px;
+  --radius-pill: 999px;
+
+  --border-hair:   0.5px solid var(--color-border);
+  --border-strong: 0.5px solid var(--color-border-strong);
+  --border-btn:    1px solid var(--color-primary);
+
+  --shadow-card-hover: 0 2px 8px rgba(43, 45, 43, 0.06);
+
+  --read-width-body:  600px;
+  --read-width-lead:  580px;
+  --read-width-hero:  760px;
+  --read-width-wide:  940px;
+
+  /* spacing rhythm (for internal use; Tailwind-free) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+}
+
+/* =========================================================
+   BASE — body, headings, links, code
+   ========================================================= */
+html, body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);  /* IBM Plex Sans */
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--text-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: var(--lh-title);
+  letter-spacing: var(--ls-h2);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-h3);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+p { margin-bottom: 1.15rem; max-width: var(--read-width-body); }
+
+/* Signature accent — sauge + weight 600, 1 word per heading max */
+.text-accent,
+.accent {
+  color: var(--color-accent-text);
+  font-weight: var(--fw-accent);
+}
+
+/* Inline links — body text only */
+a {
+  color: var(--color-primary);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 111, 106, 0.4);
+  transition: border-color 120ms ease;
+}
+a:hover { border-bottom-color: var(--color-primary); }
+
+/* Nav links — no underline */
+.nav-link {
+  color: var(--color-text);
+  font-weight: var(--fw-regular);
+  border-bottom: none;
+}
+.nav-link.is-active {
+  color: var(--color-primary);
+  font-weight: var(--fw-medium);
+}
+
+/* Inline code */
+code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: var(--color-cream-50);
+  border: 0.5px solid var(--color-cream-500);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* Code block */
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: var(--color-surface-sunken);
+  border: 0.5px solid var(--color-border);
+  padding: 14px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.55;
+}
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Minimal syntax tokens for code blocks */
+.tok-kw   { color: var(--color-teal-600); }
+.tok-str  { color: #6B4B3C; }
+.tok-com  { color: var(--color-cream-600); font-style: italic; }

@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- @dsCard group="Type" name="Type · Accent rules" subtitle="Sauge + weight 600, when / when not" viewport="700x260" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Accent sauge</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: var(--font-sans); }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 26px; background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px; }
+  h4 { margin: 0 0 16px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--color-text); letter-spacing: -0.005em; }
+  .ex { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 26px; line-height: 1.25; color: var(--color-text); letter-spacing: -0.01em; margin-bottom: 10px; }
+  .accent { color: var(--color-primary); font-weight: 600; }
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-top: 18px; padding-top: 14px; border-top: 0.5px solid var(--color-border); }
+  .rule { display: flex; gap: 8px; font-size: 12px; line-height: 1.5; }
+  .mark { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; flex-shrink: 0; width: 14px; }
+  .mark.yes { color: var(--color-primary); }
+  .mark.no { color: #A32D2D; }
+  .txt { color: var(--color-text-soft); }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Accent sauge + weight 600 — la signature</h4>
+  <div class="ex">Astro, <span class="accent">enfin</span>, pour les sites de TPE.</div>
+  <div class="ex">Le pattern <span class="accent">islands</span>, en pratique.</div>
+  <div class="rules">
+    <div class="rule"><span class="mark yes">✓</span><span class="txt">Un seul mot ou groupe par titre</span></div>
+    <div class="rule"><span class="mark no">✗</span><span class="txt">Jamais deux accents dans un même H1</span></div>
+    <div class="rule"><span class="mark yes">✓</span><span class="txt">Sur un mot porteur de sens</span></div>
+    <div class="rule"><span class="mark no">✗</span><span class="txt">Jamais sur un nom générique</span></div>
+    <div class="rule"><span class="mark yes">✓</span><span class="txt">weight 600 + teal-600 — jamais italique</span></div>
+    <div class="rule"><span class="mark no">✗</span><span class="txt">Jamais dans le corps de texte (sauf liens)</span></div>
+  </div>
+</div>
+</body>
+</html>

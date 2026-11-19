@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Card base</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-background);
+    overflow: hidden;
+  }
+  .card {
+    box-sizing: border-box;
+    width: 700px;
+    padding: 22px 26px;
+    background: var(--color-surface);
+    border: 0.5px solid var(--color-border);
+    border-radius: 10px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+  }
+  .row { display: flex; gap: 10px; align-items: stretch; }
+  .col { display: flex; flex-direction: column; gap: 10px; }
+  .tok-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-text-soft);
+    letter-spacing: 0;
+  }
+  .tok-hex {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--color-text-muted);
+  }
+</style>
+</head>
+<body></body>
+</html>

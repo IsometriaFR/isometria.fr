@@ -1,0 +1,5 @@
+/* Isometria — Core tokens. Loads the tokens (tokens.css, compiled from tokens.json)
+   and the base rules (components/bundle.css). The previous version of this file
+   is at archived/colors_and_type.css. */
+@import url("tokens.css");
+@import url("components/bundle.css");

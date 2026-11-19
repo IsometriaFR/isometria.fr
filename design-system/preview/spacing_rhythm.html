@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Vertical rhythm" subtitle="Section, H2, H3, paragraph spacing" viewport="700x270" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Vertical rhythm</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: "Nunito Sans", sans-serif; }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; display: grid; grid-template-columns: 200px 1fr; gap: 24px; }
+  h4 { margin: 0; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: #2B2D2B; letter-spacing: -0.005em; grid-column: 1 / -1; margin-bottom: 6px; }
+  .scale { display: flex; flex-direction: column; gap: 4px; }
+  .sp { display: flex; align-items: center; gap: 8px; font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: #6B6B62; }
+  .bar { height: 10px; background: #B9D3D0; border-radius: 2px; }
+  .demo h2 { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 22px; color: #2B2D2B; margin: 20px 0 8px; letter-spacing: -0.01em; }
+  .demo h2:first-of-type { margin-top: 0; }
+  .demo p { font-size: 13px; line-height: 1.7; color: #2B2D2B; margin: 0 0 9px; max-width: 380px; }
+  .rule { border-top: 0.5px solid #F1EDE0; margin: 16px 0; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Respiration verticale</h4>
+  <div class="scale">
+    <div class="sp"><div class="bar" style="width:8px"></div>space-2 · 8</div>
+    <div class="sp"><div class="bar" style="width:16px"></div>space-4 · 16</div>
+    <div class="sp"><div class="bar" style="width:24px"></div>space-6 · 24</div>
+    <div class="sp"><div class="bar" style="width:40px"></div>space-10 · 40</div>
+    <div class="sp"><div class="bar" style="width:64px"></div>space-16 · 64</div>
+    <div class="sp" style="margin-top:10px;color:#ADA896">H2 : 40 ↑ / 16 ↓</div>
+    <div class="sp" style="color:#ADA896">H3 : 28 ↑ / 12 ↓</div>
+    <div class="sp" style="color:#ADA896">p : 18 ↓</div>
+  </div>
+  <div class="demo">
+    <h2>Services</h2>
+    <p>Sites statiques, déploiement continu, zéro base de données.</p>
+    <p>Tarification au forfait, livraison en 4 à 6 semaines.</p>
+    <div class="rule"></div>
+    <h2>Journal</h2>
+    <p>Notes techniques, retours d'expérience, publications mensuelles.</p>
+  </div>
+</div>
+</body>
+</html>

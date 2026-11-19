@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Color · Crème" subtitle="Neutrals + ink — 10 stops" viewport="700x200" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Crème scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: var(--font-sans); }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px; }
+  .row { display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; }
+  .swatch { aspect-ratio: 1 / 1.25; border-radius: 8px; border: 0.5px solid var(--color-border); display: flex; flex-direction: column; justify-content: flex-end; padding: 6px 7px; font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: var(--color-cream-900); }
+  .swatch.dark { color: var(--color-cream-100); }
+  .stop { opacity: 0.85; }
+  .hex { font-weight: 500; letter-spacing: -0.01em; }
+  h4 { margin: 0 0 14px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--color-text); letter-spacing: -0.005em; }
+  .caption { font-size: 11.5px; color: var(--color-text-soft); margin-top: 12px; }
+  .caption b { color: var(--color-primary); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Crème — 10 stops</h4>
+  <div class="row">
+    <div class="swatch" style="background:#FFFFFF"><div class="stop">50</div><div class="hex">FEFCF7</div></div>
+    <div class="swatch" style="background:#FFFFFE"><div class="stop">100</div><div class="hex">FDFAF2</div></div>
+    <div class="swatch" style="background:#FEFDF9"><div class="stop">200</div><div class="hex">F7F3E8</div></div>
+    <div class="swatch" style="background:#FAF7EE"><div class="stop">300</div><div class="hex">EFEBDD</div></div>
+    <div class="swatch" style="background:#F1EDE0"><div class="stop">400</div><div class="hex">E5E0D0</div></div>
+    <div class="swatch" style="background:#DCD6C4"><div class="stop">500</div><div class="hex">C9C3B0</div></div>
+    <div class="swatch dark" style="background:#ADA896"><div class="stop">600</div><div class="hex">9A9584</div></div>
+    <div class="swatch dark" style="background:#6B6B62"><div class="stop">700</div><div class="hex">6B6B62</div></div>
+    <div class="swatch dark" style="background:#45453F"><div class="stop">800</div><div class="hex">45453F</div></div>
+    <div class="swatch dark" style="background:#2B2D2B"><div class="stop">900</div><div class="hex">2B2D2B</div></div>
+  </div>
+  <p class="caption"><b>cream-200</b> est le fond par défaut ; <b>cream-900</b> est l'ink, texte principal.</p>
+</div>
+</body>
+</html>

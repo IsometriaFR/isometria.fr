@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Code inline & block" subtitle="JetBrains Mono · limited syntax" viewport="700x240" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Code</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: "Nunito Sans", sans-serif; }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; }
+  h4 { margin: 0 0 12px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: #2B2D2B; letter-spacing: -0.005em; }
+  p { font-size: 14px; color: #2B2D2B; line-height: 1.7; margin: 0 0 10px; }
+  code.inl { font-family: "JetBrains Mono", monospace; font-size: 13px; background: #FFFFFF; border: 0.5px solid #DCD6C4; padding: 2px 6px; border-radius: 4px; }
+  pre { font-family: "JetBrains Mono", monospace; font-size: 13px; background: #FAF7EE; border: 0.5px solid #F1EDE0; padding: 14px 16px; border-radius: 8px; margin: 8px 0 0; overflow: hidden; line-height: 1.55; }
+  .kw { color: #2E6F6A; }
+  .s { color: #6B4B3C; }
+  .c { color: #ADA896; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Code</h4>
+  <p>Configurer le build avec <code class="inl">astro.config.mjs</code>. Les imports <code class="inl">@fontsource-variable</code> chargent les trois polices.</p>
+  <pre><span class="c">// astro.config.mjs</span>
+<span class="kw">import</span> { defineConfig } <span class="kw">from</span> <span class="s">'astro/config'</span>;
+<span class="kw">export default</span> defineConfig({
+  site: <span class="s">'https://sebc.dev'</span>,
+  output: <span class="s">'static'</span>,
+});</pre>
+</div>
+</body>
+</html>

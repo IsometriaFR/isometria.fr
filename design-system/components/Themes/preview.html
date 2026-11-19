@@ -1,0 +1,42 @@
+<!-- @dsCard group="Social et motion" name="Thèmes — clair et sombre" subtitle="light pour le site, dark en réserve" width=700 height=340 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Thèmes</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: #FEFDF9; font-family: "Nunito Sans", sans-serif; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 668px; max-width: 100%; }
+  .t { box-sizing: border-box; padding: 22px 22px 20px; border-radius: 10px; border: 0.5px solid var(--bd); background: var(--bg); color: var(--tx); }
+  .t.light { --bg: #FEFDF9; --sf: #FFFFFE; --sk: #FAF7EE; --bd: #DCD6C4; --tx: #2B2D2B; --soft: #6B6B62; --pr: #2E6F6A; --on: #FEFDF9; --ps: #DCE9E7; --pst: #2E6F6A; --ap: #8A5519; --aps: #F6E7D2; }
+  .t.dark  { --bg: #121A19; --sf: #1A2321; --sk: #0C1211; --bd: #3A4643; --tx: #FAF7EE; --soft: #ADA896; --pr: #8FB8B3; --on: #121A19; --ps: #1B4441; --pst: #B9D3D0; --ap: #E3B777; --aps: #3A2A14; }
+  .lab { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pst); background: var(--ps); padding: 3px 9px; border-radius: 999px; }
+  h4 { margin: 14px 0 8px; font-family: "IBM Plex Sans", sans-serif; font-weight: 500; font-size: 24px; line-height: 1.2; letter-spacing: -0.015em; color: var(--tx); }
+  h4 b { font-weight: 600; color: var(--pr); }
+  p { margin: 0 0 14px; font-size: 14px; line-height: 1.55; color: var(--soft); max-width: none; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .btn { font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 7px; background: var(--pr); color: var(--on); }
+  .chip { font-family: "JetBrains Mono", monospace; font-size: 12px; padding: 5px 9px; border-radius: 4px; background: var(--sk); border: 0.5px solid var(--bd); color: var(--tx); }
+  .ap { font-size: 12px; font-weight: 500; padding: 5px 10px; border-radius: 4px; background: var(--aps); color: var(--ap); }
+  .meta { margin-top: 16px; padding-top: 12px; border-top: 0.5px solid var(--bd); font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--soft); }
+</style>
+</head>
+<body>
+<div class="pair">
+  <div class="t light">
+    <span class="lab">Site</span>
+    <h4>Vos devis, <b>prêts</b> en deux minutes.</h4>
+    <p>Vouvoiement, jargon expliqué une fois, fond crème.</p>
+    <div class="row"><span class="btn">Voir la démarche</span><span class="chip">12 min</span><span class="ap">Vous validez</span></div>
+    <div class="meta">data-theme="light"</div>
+  </div>
+  <div class="t dark">
+    <span class="lab">En réserve</span>
+    <h4>Votre tableau de bord, <b>de nuit</b>.</h4>
+    <p>Usage à définir — par exemple le mode sombre d’une application client.</p>
+    <div class="row"><span class="btn">Ouvrir</span><span class="chip">v1.7</span><span class="ap">À définir</span></div>
+    <div class="meta">data-theme="dark"</div>
+  </div>
+</div>
+</body>
+</html>

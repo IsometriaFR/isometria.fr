@@ -29,7 +29,9 @@ worker-configuration.d.ts
 .DS_Store
 Thumbs.db
 
-# claude / agent skills caches
+# caches de skills d'agents (le skill impeccable de .claude/skills/ est suivi, pour les sessions distantes)
 .agents/
-.claude/skills/
 .lighthouseci/
+
+# impeccable : réglages propres à la machine
+.impeccable/config.local.json

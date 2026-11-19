@@ -1,0 +1,95 @@
+<!-- @dsCard group="Social et motion" name="Motion — les gestes" subtitle="Le tracé, le dévoilement, le mot accentué" width=700 height=380 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Motion</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: #FEFDF9; font-family: "Nunito Sans", sans-serif; color: #2B2D2B; }
+  .card { box-sizing: border-box; width: 668px; max-width: 100%; padding: 20px 22px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px;
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 12px; }
+  .cell { background: #FEFDF9; border: 0.5px solid #DCD6C4; border-radius: 7px; padding: 14px 14px 12px; display: flex; flex-direction: column; }
+  .stage { height: 120px; display: flex; align-items: center; justify-content: center; }
+  .name { margin: 8px 0 2px; font-family: "IBM Plex Sans", sans-serif; font-weight: 500; font-size: 15px; }
+  .spec { margin: 0; font-family: "JetBrains Mono", monospace; font-size: 10.5px; line-height: 1.5; color: #6B6B62; }
+
+  /* 1 — le tracé */
+  .draw polygon, .draw path { stroke-dasharray: 100; stroke-dashoffset: 100; }
+  .play .draw polygon { animation: draw 900ms var(--ease-in-out) 100ms forwards; }
+  .play .draw path { animation: draw 900ms var(--ease-in-out) 700ms forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* 2 — le dévoilement : mot par mot, du gris clair à l’encre, sans bouger */
+  .words { margin: 0; font-family: "IBM Plex Sans", sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; max-width: none; }
+  .words span { color: #E2DED1; }
+  .play .words span { animation: ink 500ms var(--ease-out) forwards; }
+  .play .words span:nth-child(1) { animation-delay: 200ms; } .play .words span:nth-child(2) { animation-delay: 280ms; }
+  .play .words span:nth-child(3) { animation-delay: 360ms; } .play .words span:nth-child(4) { animation-delay: 440ms; } .play .words span:nth-child(5) { animation-delay: 520ms; }
+  @keyframes ink { to { color: #2B2D2B; } }
+
+  /* 3 — le mot accentué */
+  .title { margin: 0; font-family: "IBM Plex Sans", sans-serif; font-weight: 500; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; opacity: 0; max-width: none; }
+  .title b { font-weight: 600; color: #2B2D2B; }
+  .play .title { animation: show 500ms var(--ease-out) 200ms forwards; }
+  @keyframes show { to { opacity: 1; } }
+  .play .title b { animation: accent 300ms var(--ease-out) 1000ms forwards; }
+  @keyframes accent { to { color: #2E6F6A; } }
+
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 14px; padding-top: 12px; border-top: 0.5px solid #F1EDE0; }
+  .foot p { margin: 0; font-size: 12px; line-height: 1.5; color: #6B6B62; max-width: none; }
+  button { font: 500 13px "Nunito Sans", sans-serif; color: #2E6F6A; background: transparent; border: 1px solid #2E6F6A; border-radius: 7px; padding: 6px 14px; cursor: pointer; white-space: nowrap; }
+  button:hover { background: #DCE9E7; }
+  button:focus-visible { outline: 2px solid #2E6F6A; outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .draw polygon, .draw path { stroke-dashoffset: 0; animation: none !important; }
+    .title { opacity: 1; animation: none !important; }
+    .words span { color: #2B2D2B; animation: none !important; }
+    .title b { color: #2E6F6A; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="card play" id="card">
+  <div class="grid">
+    <div class="cell">
+      <div class="stage">
+        <svg class="draw" width="92" height="92" viewBox="0 0 32 32" role="img" aria-label="Le cube du logo se trace : contour, puis arêtes intérieures">
+          <polygon pathLength="100" points="16,4 26.392,10 26.392,22 16,28 5.608,22 5.608,10" fill="none" stroke="#2E6F6A" stroke-width="2" stroke-linejoin="round"/>
+          <path pathLength="100" d="M16 16 5.608 10" fill="none" stroke="#2E6F6A" stroke-width="0.85" stroke-linecap="round"/>
+          <path pathLength="100" d="M16 16l10.392-6" fill="none" stroke="#2E6F6A" stroke-width="0.85" stroke-linecap="round"/>
+          <path pathLength="100" d="M16 16v12" fill="none" stroke="#2E6F6A" stroke-width="0.85" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="name">Le tracé</p>
+      <p class="spec">duration-draw 900ms<br>ease-in-out</p>
+    </div>
+    <div class="cell">
+      <div class="stage">
+        <p class="words" aria-label="Un titre apparaît mot par mot, du gris clair à l’encre, sans bouger"><span>Vos </span><span>devis, </span><span>prêts </span><span>en deux </span><span>minutes.</span></p>
+      </div>
+      <p class="name">Le dévoilement</p>
+      <p class="spec">duration-enter 500ms<br>ease-out · stagger 80ms · sans glissement</p>
+    </div>
+    <div class="cell">
+      <div class="stage"><p class="title">Claude <b>trie</b><br>vos courriels.</p></div>
+      <p class="name">Le mot accentué</p>
+      <p class="spec">duration-accent 300ms<br>couleur seule, graisse 600 dès l’entrée</p>
+    </div>
+  </div>
+  <div class="foot">
+    <p>Jamais de rebond ni de glissement en diagonale. Seul le cube de l’accueil tourne (carte « Scène du cube »). Avec <em style="font-style:normal;font-family:'JetBrains Mono',monospace;font-size:11px">prefers-reduced-motion</em>, l’état final s’affiche directement.</p>
+    <button type="button" id="replay">Rejouer</button>
+  </div>
+</div>
+<script>
+  document.getElementById('replay').addEventListener('click', function () {
+    var c = document.getElementById('card');
+    c.classList.remove('play');
+    void c.offsetWidth;
+    c.classList.add('play');
+  });
+</script>
+</body>
+</html>

@@ -7,5 +7,10 @@ package-lock.json
 skills-lock.json
 worker-configuration.d.ts
 docs/
+# Outillage d'agents (skills, sous-agents) : fichiers tiers, publiés tels quels
+.claude/
+.gemini/
+# Source du design system, publiée telle quelle par /design-sync
+design-system/
 # Moteur du cube porté depuis le prototype (lignes denses volontaires)
 src/scripts/cube-home.js

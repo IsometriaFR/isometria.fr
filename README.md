@@ -62,6 +62,23 @@ Ouvrir <http://localhost:4321>.
     └── styles/             # global.css (tokens) + home.css (accueil)
 ```
 
+## Design system
+
+Le design system Isometria est piloté par le code : sa source est le dossier `design-system/`.
+
+- `design-system/README.md` : le livre de marque ; `design-system/guides/` : ses sections (public, motion, schémas, illustrations, site…).
+- `design-system/tokens.json` : les tokens ; `design-system/components/` : une carte par composant (`README.md` + `preview.html`).
+- `design-system/assets/` et `design-system/fonts/` : logos, illustrations, captures de l'accueil, polices.
+- `DESIGN.md` : le résumé pour le site, lu par les outils de design.
+
+Pour modifier le système : éditer les fichiers de `design-system/`, puis lancer `/design-sync` dans Claude Code pour republier l'artefact Claude. L'artefact n'est plus modifié à la main : chaque synchronisation remplace son contenu.
+
+Le dossier est ignoré par Prettier, ESLint et la vérification de types : ses fichiers sont publiés tels quels.
+
+## Travailler avec Claude
+
+`CLAUDE.md` donne à Claude les règles du projet. Le skill de design `impeccable` et ses sous-agents sont suivis dans `.claude/` ; `.claude/settings.json` déclare les plugins et les hooks. Pour les sessions distantes (Projets Claude, sessions cloud), les réglages à faire côté claude.ai sont dans [`docs/claude-distant.md`](docs/claude-distant.md).
+
 ## Tailwind v4
 
 - Plugin Vite branché dans `astro.config.mjs` : `vite.plugins: [tailwindcss()]`.
