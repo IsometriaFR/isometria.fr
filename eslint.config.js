@@ -13,6 +13,8 @@ export default tseslint.config(
       'node_modules/',
       'worker-configuration.d.ts',
       '.lighthouseci/',
+      // Source du design system (aperçus, archives) : publiée telle quelle, pas du code du site.
+      'design-system/',
     ],
   },
   js.configs.recommended,

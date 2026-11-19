@@ -1,0 +1,182 @@
+/* Isometria Design System — generated from tokens.json */
+:root, [data-theme="light"] {
+  --color-teal-50: #F0F5F4; /* Teal sauge, stop 50. */
+  --color-teal-100: #DCE9E7; /* Teal sauge, stop 100 — `color-primary-soft` (badge background, secondary-button hover wash) and `color-info-bg`. */
+  --color-teal-200: #B9D3D0; /* Teal sauge, stop 200. */
+  --color-teal-300: #8FB8B3; /* Teal sauge, stop 300. */
+  --color-teal-400: #5A9792; /* Teal sauge, stop 400. */
+  --color-teal-500: #3D807A; /* Teal sauge, stop 500 — `color-primary-hover`. */
+  --color-teal-600: #2E6F6A; /* The primary colour — buttons, links, the editorial accent word, the logo mark. As text: 5.7:1 on `color-background`, 5.8:1 on `color-surface`, 4.7:1 on `color-teal-100`. */
+  --color-teal-700: #265A56; /* Teal sauge, stop 700 — `color-primary-active` and `color-info-text`. */
+  --color-teal-800: #1B4441; /* Teal sauge, stop 800. */
+  --color-teal-900: #10302D; /* Teal sauge, stop 900. */
+  --color-cream-50: #FFFFFF; /* Crème, stop 50 — `color-surface-raised` (modal, popover, tooltip); inline code fill. */
+  --color-cream-100: #FFFFFE; /* Crème, stop 100 — `color-surface` (cards). Text on a `color-teal-600` fill, never #FFFFFF. */
+  --color-cream-200: #FEFDF9; /* Crème, stop 200 — `color-background`, the default page ground. Text on a `color-teal-600` fill (5.7:1). */
+  --color-cream-300: #FAF7EE; /* Crème, stop 300 — `color-surface-sunken` (code blocks). */
+  --color-cream-400: #F1EDE0; /* Crème, stop 400 — `color-border`, the subtle 0.5px hairline. Below 3:1 on the page by design: card contrast is intentionally subtle. */
+  --color-cream-500: #DCD6C4; /* Crème, stop 500 — `color-border-strong`, the emphasis hairline; inline code border. */
+  --color-cream-600: #ADA896; /* Crème, stop 600 — `color-text-muted`; code comments. */
+  --color-cream-700: #6B6B62; /* Crème, stop 700 — `color-text-soft`. */
+  --color-cream-800: #45453F; /* Crème, stop 800. */
+  --color-cream-900: #2B2D2B; /* Crème, stop 900 — the ink, `color-text`. */
+  --color-background: var(--color-cream-200); /* Page background — the bottom of the surface stack (cream-200 → cream-100 → cream-50). */
+  --color-surface: var(--color-cream-100); /* Cards, on `color-background`. */
+  --color-surface-raised: var(--color-cream-50); /* Modal, popover, tooltip, on `color-surface`. */
+  --color-surface-sunken: var(--color-cream-300); /* Code blocks. */
+  --color-border: var(--color-cream-400); /* Hairline borders, 0.5px. */
+  --color-border-strong: var(--color-cream-500); /* Emphasis hairlines, 0.5px. */
+  --color-text: var(--color-cream-900); /* Ink — main text, on every surface (13:1 or more). */
+  --color-text-soft: var(--color-cream-700); /* Meta text, on every surface (5.0:1 or more). */
+  --color-text-muted: var(--color-cream-600); /* Disabled text and placeholders. Below 4.5:1 on every surface (about 2.3:1): keep it for disabled states and non-essential text. */
+  --color-primary: var(--color-teal-600); /* CTA / lien — primary buttons, inline links, nav active state. */
+  --color-primary-hover: var(--color-teal-500); /* Primary button hover fill; `color-cream-200` label on it holds 4.5:1. */
+  --color-primary-active: var(--color-teal-700); /* Primary button press/active fill. */
+  --color-primary-soft: var(--color-teal-100); /* Badge background; secondary-button hover wash. */
+  --color-accent-text: var(--color-teal-600); /* The editorial accent word — one word per heading, weight 600, never italic. */
+  --color-success-bg: #EAF2E4; /* Success background — system states are utility only, never editorial. */
+  --color-success-text: #3B6D11; /* Success text, on `color-success-bg` (5.4:1). */
+  --color-warning-bg: #FAEEDA; /* Warning background — utility only. */
+  --color-warning-text: #854F0B; /* Warning text, on `color-warning-bg` (5.9:1). */
+  --color-danger-bg: #FCEBEB; /* Danger background — utility only. */
+  --color-danger-text: #A32D2D; /* Danger text, on `color-danger-bg` (6.1:1); error borders and messages on `color-surface`. */
+  --color-info-bg: var(--color-teal-100); /* Info background — utility only. */
+  --color-info-text: var(--color-teal-700); /* Info text, on `color-info-bg` (6.3:1). */
+  --shadow-card-hover: 0 2px 8px rgba(43, 45, 43, 0.06); /* The one defined shadow — only on hover over cards. */
+}
+:root {
+  --space-1: 0.25rem; /* Spacing step 1. */
+  --space-2: 0.5rem; /* Spacing step 2. */
+  --space-3: 0.75rem; /* Spacing step 3. */
+  --space-4: 1rem; /* Spacing step 4. */
+  --space-5: 1.25rem; /* Spacing step 5. */
+  --space-6: 1.5rem; /* Spacing step 6 — card padding. */
+  --space-8: 2rem; /* Spacing step 8. */
+  --space-10: 2.5rem; /* Spacing step 10 — H2 margin-top. */
+  --space-12: 3rem; /* Spacing step 12 — section padding (3–4rem). */
+  --space-14: 3.5rem; /* Spacing step 14. */
+  --space-16: 4rem; /* Spacing step 16 — section padding (3–4rem). */
+  --radius-sm: 4px; /* Tight tokens — inline code, tech tags. */
+  --radius-md: 7px; /* Buttons, inputs, standard cards. */
+  --radius-lg: 10px; /* Raised cards, modals. */
+  --radius-pill: 999px; /* Badge chips. */
+  --text-2xs: 11px; /* Micro-labels, badges, eyebrows. */
+  --text-xs: 12px; /* Small meta. */
+  --text-sm: 13px; /* Meta; inline code and code blocks. */
+  --text-base: 14px; /* UI text. */
+  --text-body: 16px; /* Body copy. */
+  --text-lead: 18px; /* Lead paragraphs. */
+  --text-h3: 20px; /* H3. */
+  --text-h2-sm: 24px; /* Small H2. */
+  --text-h2: 28px; /* H2. */
+  --text-h2-lg: 32px; /* Large H2. */
+  --text-h1-sm: 36px; /* Small H1. */
+  --text-h1: 42px; /* H1. */
+  --text-display: 56px; /* Display. */
+  --lh-tight: 1.1; /* H1. */
+  --lh-title: 1.25; /* H2. */
+  --lh-snug: 1.3; /* H3. */
+  --lh-normal: 1.55; /* Meta, code blocks. */
+  --lh-body: 1.7; /* Body copy. */
+  --fw-regular: 400; /* Body. */
+  --fw-medium: 500; /* h1/h2/h3, links, active nav, buttons. */
+  --fw-accent: 600; /* The editorial accent word (signature). */
+  --ls-h3: -0.005em; /* H3. */
+  --ls-h2: -0.015em; /* H2. */
+  --ls-h1: -0.02em; /* H1. */
+  --ls-display: -0.025em; /* Display. */
+  --ls-label: 0.08em; /* Uppercase badges, eyebrows. */
+  --read-width-body: 600px; /* Body reading width (~70–75 chars/line). */
+  --read-width-lead: 580px; /* Lead paragraphs (`text-lead`). */
+  --read-width-hero: 760px; /* Hero H1 + sous-titre. */
+  --read-width-wide: 940px; /* Wide sections (cards grid, tables, gallery). No further. */
+  --font-serif: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nunito Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --text-text-display: 500 56px/1.05 var(--font-serif); /* Display. */
+  --text-text-h1: 500 42px/1.1 var(--font-serif); /* H1. */
+  --text-text-h2: 500 28px/1.25 var(--font-serif); /* H2 — margin-top 2.5rem, margin-bottom 1rem. */
+  --text-text-h3: 500 20px/1.3 var(--font-serif); /* H3 — margin-top 1.75rem, margin-bottom 0.75rem. */
+  --text-text-lead: 400 18px/1.6 var(--font-sans); /* Lead paragraphs, around 580px wide (`read-width-lead`). */
+  --text-text-body: 400 16px/1.7 var(--font-sans); /* Body copy, capped at 600px (`read-width-body`). */
+  --text-text-sm: 400 13px/1.55 var(--font-sans); /* Meta. */
+  --text-text-label: 500 11px/1.4 var(--font-sans); /* Micro-labels (badges, uppercase tags): uppercase, with letter-spacing 0.08em to compensate. */
+  --text-text-code: 400 13px/1.55 var(--font-mono); /* Inline code and code blocks. */
+}
+.text-display {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.text-h1 {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.text-h2 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.text-h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.text-lead {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.text-sm {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.text-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.text-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("fonts/NunitoSans-VariableFont_YTLC_opsz_wdth_wght.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("fonts/NunitoSans-Italic-VariableFont_YTLC_opsz_wdth_wght.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Isometria">
+  <title>Isometria</title>
+  <path d="M16.000,16.000L5.608,10.000M16.000,16.000L26.392,10.000M16.000,16.000V28.000" fill="none" stroke="#FEFDF9" stroke-width="0.85" stroke-linecap="round"></path>
+  <polygon points="16.000,4.000 26.392,10.000 26.392,22.000 16.000,28.000 5.608,22.000 5.608,10.000" fill="none" stroke="#FEFDF9" stroke-width="2" stroke-linejoin="round"></polygon>
+</svg>

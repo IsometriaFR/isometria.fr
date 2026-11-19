@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Color · System states" subtitle="Success / warning / danger / info — UI only" viewport="700x170" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>System states</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: var(--font-sans); }
+  .card { box-sizing: border-box; width: 668px; padding: 20px 24px; background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px; }
+  h4 { margin: 0 0 4px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--color-text); letter-spacing: -0.005em; }
+  .note { font-size: 11.5px; color: var(--color-text-soft); margin: 0 0 14px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .toast { padding: 10px 12px; border-radius: 8px; font-size: 12px; display: flex; align-items: center; gap: 8px; border: 0.5px solid transparent; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .label { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--color-text-soft); margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>États système</h4>
+  <p class="note">Utilisés uniquement pour les retours UI. Jamais dans le contenu éditorial.</p>
+  <div class="grid">
+    <div>
+      <div class="toast" style="background:#EAF2E4;color:#3B6D11;border-color:#c9dbb4"><span class="dot" style="background:#3B6D11"></span>Projet enregistré</div>
+      <div class="label">success</div>
+    </div>
+    <div>
+      <div class="toast" style="background:#FAEEDA;color:#854F0B;border-color:#e9d4a8"><span class="dot" style="background:#854F0B"></span>Vérifiez la date</div>
+      <div class="label">warning</div>
+    </div>
+    <div>
+      <div class="toast" style="background:#FCEBEB;color:#A32D2D;border-color:#edc2c2"><span class="dot" style="background:#A32D2D"></span>Erreur de syntaxe</div>
+      <div class="label">danger</div>
+    </div>
+    <div>
+      <div class="toast" style="background:#DCE9E7;color:#265A56;border-color:#b9d3d0"><span class="dot" style="background:#265A56"></span>Build en cours</div>
+      <div class="label">info</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

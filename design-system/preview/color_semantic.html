@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Color · Semantic tokens" subtitle="Background, surface, text, primary" viewport="700x280" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Semantic colors</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: var(--font-sans); }
+  .card { box-sizing: border-box; width: 668px; padding: 20px 24px; background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .row { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .chip { width: 22px; height: 22px; border-radius: 5px; border: 0.5px solid var(--color-border); flex-shrink: 0; }
+  .name { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--color-text); }
+  .role { color: var(--color-text-soft); font-size: 11.5px; margin-left: auto; }
+  h4 { margin: 0 0 12px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: var(--color-text); letter-spacing: -0.005em; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Tokens sémantiques</h4>
+  <div class="grid">
+    <div class="row"><div class="chip" style="background:#FEFDF9"></div><span class="name">--color-background</span><span class="role">page</span></div>
+    <div class="row"><div class="chip" style="background:#FFFFFE"></div><span class="name">--color-surface</span><span class="role">card</span></div>
+    <div class="row"><div class="chip" style="background:#FFFFFF"></div><span class="name">--color-surface-raised</span><span class="role">modal</span></div>
+    <div class="row"><div class="chip" style="background:#FAF7EE"></div><span class="name">--color-surface-sunken</span><span class="role">code</span></div>
+    <div class="row"><div class="chip" style="background:#F1EDE0"></div><span class="name">--color-border</span><span class="role">hairline</span></div>
+    <div class="row"><div class="chip" style="background:#DCD6C4"></div><span class="name">--color-border-strong</span><span class="role">emphasis</span></div>
+    <div class="row"><div class="chip" style="background:#2B2D2B"></div><span class="name">--color-text</span><span class="role">ink</span></div>
+    <div class="row"><div class="chip" style="background:#6B6B62"></div><span class="name">--color-text-soft</span><span class="role">meta</span></div>
+    <div class="row"><div class="chip" style="background:#ADA896"></div><span class="name">--color-text-muted</span><span class="role">disabled</span></div>
+    <div class="row"><div class="chip" style="background:#2E6F6A"></div><span class="name">--color-primary</span><span class="role">CTA / lien</span></div>
+    <div class="row"><div class="chip" style="background:#3D807A"></div><span class="name">--color-primary-hover</span><span class="role">hover</span></div>
+    <div class="row"><div class="chip" style="background:#DCE9E7"></div><span class="name">--color-primary-soft</span><span class="role">badge bg</span></div>
+  </div>
+</div>
+</body>
+</html>

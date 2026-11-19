@@ -1,0 +1,161 @@
+<!-- @dsCard group="Social et motion" name="Scène du cube" subtitle="Accueil : le cube tourne au défilement, une face sort par section" width=700 height=470 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Scène du cube</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: #FEFDF9; font-family: "Nunito Sans", sans-serif; color: #2B2D2B; }
+  .card { box-sizing: border-box; width: 668px; max-width: 100%; padding: 18px 20px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+  .head p { margin: 0; font-size: 12.5px; line-height: 1.5; color: #6B6B62; }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6B62; white-space: nowrap; }
+  .scroller { position: relative; height: 300px; overflow-y: auto; border: 0.5px solid #DCD6C4; border-radius: 7px; background: #FEFDF9; overscroll-behavior: contain; }
+  .scroller:focus-visible { outline: 2px solid #2E6F6A; outline-offset: 2px; }
+  .sticky { position: sticky; top: 0; height: 300px; margin-bottom: -300px; pointer-events: none; }
+  .sticky svg { width: 100%; height: 100%; display: block; }
+  .sec { height: 300px; display: flex; align-items: center; padding: 0 22px; box-sizing: border-box; }
+  .sec.r { justify-content: flex-end; }
+  .sec div { width: 44%; }
+  .sec b { display: block; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #2E6F6A; margin-bottom: 4px; }
+  .sec span { font-family: "IBM Plex Sans", sans-serif; font-weight: 500; font-size: 17px; line-height: 1.25; letter-spacing: -0.01em; }
+  .bar { position: relative; height: 22px; margin-top: 12px; }
+  .bar i { position: absolute; top: 9px; height: 4px; border-radius: 2px; }
+  .lg { display: flex; gap: 14px; margin-top: 4px; font-size: 11.5px; color: #6B6B62; }
+  .lg span::before { content: ""; display: inline-block; width: 10px; height: 4px; border-radius: 2px; margin-right: 5px; vertical-align: middle; background: var(--c); }
+  .pos { position: absolute; top: 4px; width: 1px; height: 14px; background: #2B2D2B; }
+  .face { stroke: #9C9783; stroke-width: 0.9; stroke-linejoin: round; }
+  .hull { fill: none; stroke: #2E6F6A; stroke-linejoin: round; }
+  .inner { fill: none; stroke: #2E6F6A; stroke-linecap: round; }
+  .pop { fill: #F0F5F4; stroke: #5A9792; stroke-width: 1; stroke-linejoin: round; }
+  .grid { fill: none; stroke: #CBC6B5; stroke-width: 0.7; opacity: 0.5; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <p>Faites défiler le cadre : le cube passe par ses cinq états avec les mêmes temps et courbes que l’accueil (sans lissage ni parallaxe).</p>
+    <span class="mono" id="readout">Accueil</span>
+  </div>
+  <div class="scroller" id="sc" tabindex="0" aria-label="Zone de défilement de démonstration de la scène du cube">
+    <div class="sticky" aria-hidden="true"><svg id="svg"></svg></div>
+    <div class="sec"><div><b>Accueil</b><span>Le cube en pose de logo.</span></div></div>
+    <div class="sec r" data-i="1"><div><b>Face 01 · Site web</b><span>La face gauche sort.</span></div></div>
+    <div class="sec" data-i="2"><div><b>Face 02 · Outils</b><span>Le cube tourne, la face droite sort.</span></div></div>
+    <div class="sec r" data-i="3"><div><b>Face 03 · IA</b><span>Le dessus sort.</span></div></div>
+    <div class="sec" data-i="4" style="justify-content:center;text-align:center"><div style="width:auto;margin-top:150px"><b>Contact</b><span>Un tour complet, trois faces éclatées.</span></div></div>
+  </div>
+  <div class="bar" id="bar" aria-hidden="true"></div>
+  <div class="lg"><span style="--c:#ADA896">1 · la face rentre</span><span style="--c:#2E6F6A">2 · rotation et respiration</span><span style="--c:#8FB8B3">3 · la face sort</span></div>
+</div>
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg", svg = document.getElementById("svg"), sc = document.getElementById("sc");
+  var ISO = 35.264;
+  // même ordre que l'accueil ; positions recalées pour un cadre de démonstration
+  var ST = [
+    { x: .7, y: .52, s: 1, yaw: 45, pitch: ISO, site: 0, outils: 0, ia: 0, name: "Accueil" },
+    { x: .3, y: .5, s: 1.06, yaw: 112, pitch: 28, site: 1, outils: 0, ia: 0, name: "Face 01 · Site web" },
+    { x: .7, y: .53, s: 1.06, yaw: -22, pitch: 20, site: 0, outils: 1, ia: 0, name: "Face 02 · Outils internes" },
+    { x: .3, y: .55, s: 1.04, yaw: 45, pitch: 56, site: 0, outils: 0, ia: 1, name: "Face 03 · IA" },
+    { x: .5, y: .34, s: .7, yaw: 405, pitch: ISO, site: 1, outils: 1, ia: 1, name: "Contact" }
+  ];
+  var p2i = function (t) { return t * t; }, p2o = function (t) { return 1 - (1 - t) * (1 - t); };
+  var p2io = function (t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+  var sIn = function (t) { return 1 - Math.cos(t * Math.PI / 2); }, sOut = function (t) { return Math.sin(t * Math.PI / 2); };
+  var cl = function (t) { return Math.max(0, Math.min(1, t)); }, lerp = function (a, b, t) { return a + (b - a) * t; };
+  var C8 = [[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]];
+  var FACES = [
+    { id: "site", n: [-1,0,0], q: [7,4,0,3] }, { id: "outils", n: [0,-1,0], q: [4,5,1,0] }, { id: "ia", n: [0,0,1], q: [7,6,5,4] },
+    { id: "e", n: [1,0,0], q: [5,6,2,1] }, { id: "nn", n: [0,1,0], q: [6,7,3,2] }, { id: "b", n: [0,0,-1], q: [0,1,2,3] }
+  ];
+  var EDGES = [];
+  FACES.forEach(function (f, fi) { f.q.forEach(function (a, i) { var b = f.q[(i + 1) % 4]; var e = EDGES.find(function (x) { return x[0] === b && x[1] === a; }); if (e) e[3] = fi; else EDGES.push([a, b, fi, -1]); }); });
+  function el(tag, cls) { var n = document.createElementNS(NS, tag); if (cls) n.setAttribute("class", cls); svg.appendChild(n); return n; }
+  var grid = el("path", "grid"), polys = FACES.map(function () { return el("polygon", "face"); }), hull = el("path", "hull"), inner = el("path", "inner");
+  var pops = { site: el("polygon", "pop"), outils: el("polygon", "pop"), ia: el("polygon", "pop") };
+
+  // état au point p (0..4) : chaque passage i-1 → i suit les temps de l'accueil
+  function stateAt(p) {
+    var i = Math.min(4, Math.max(1, Math.ceil(p))), t = cl(p - (i - 1)), A = ST[i - 1], B = ST[i], S = {};
+    ["x", "y", "yaw", "pitch"].forEach(function (k) { S[k] = lerp(A[k], B[k], p2io(cl((t - .2) / .6))); });
+    var dip = Math.min(A.s, B.s) * .82;
+    S.s = t < .5 ? lerp(A.s, dip, sOut(cl((t - .2) / .3))) : lerp(dip, B.s, sIn(cl((t - .5) / .3)));
+    ["site", "outils", "ia"].forEach(function (k) {
+      var v = A[k] && B[k] ? 1 : A[k] ? 1 - p2i(cl(t / .22)) : B[k] ? p2o(cl((t - .78) / .22)) : 0;
+      S[k] = v;
+    });
+    S.phase = t <= 0 || t >= 1 ? 0 : t < .2 ? 1 : t < .78 ? 2 : 3; S.i = i; S.t = t;
+    return S;
+  }
+  function render(S) {
+    var W = svg.clientWidth || 628, H = svg.clientHeight || 300; svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    var R = Math.min(W * .13, H * .26) * S.s, k = R / 1.633, cx = S.x * W, cy = S.y * H;
+    var r = Math.PI / 180, cy0 = Math.cos(S.yaw * r), sy0 = Math.sin(S.yaw * r), ce = Math.cos(S.pitch * r), se = Math.sin(S.pitch * r);
+    function rot(p) { return [p[0] * cy0 - p[1] * sy0, p[0] * sy0 + p[1] * cy0, p[2]]; }
+    function proj(p) { var q = rot(p); return [cx + k * q[0], cy - k * (q[1] * se + q[2] * ce)]; }
+    function facing(n) { var q = rot(n); return -q[1] * ce + q[2] * se; }
+    var P8 = C8.map(proj), vis = FACES.map(function (f) { return facing(f.n); });
+    var g = "";
+    for (var a = -3; a <= 3; a += .5) { var p = proj([a, -3, -1]), q = proj([a, 3, -1]), u = proj([-3, a, -1]), v = proj([3, a, -1]); g += "M" + p + "L" + q + "M" + u + "L" + v; }
+    grid.setAttribute("d", g);
+    FACES.forEach(function (f, i) {
+      if (vis[i] <= .002) { polys[i].setAttribute("points", ""); return; }
+      polys[i].setAttribute("points", f.q.map(function (j) { return P8[j].join(","); }).join(" "));
+      var x = rot(f.n)[0], l = f.n[2] === 1 ? 250 : Math.round(236 + 14 * Math.max(0, Math.min(1, (x + 1) / 2)));
+      polys[i].style.fill = f.n[2] === 1 ? "#F6FAF9" : "rgb(" + l + "," + (l - 2) + "," + (l - 9) + ")";
+    });
+    var pts = P8.slice().sort(function (A, B) { return A[0] - B[0] || A[1] - B[1]; });
+    var cr = function (o, A, B) { return (A[0] - o[0]) * (B[1] - o[1]) - (A[1] - o[1]) * (B[0] - o[0]); }, lo = [], up = [];
+    pts.forEach(function (q) { while (lo.length > 1 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); });
+    pts.reverse().forEach(function (q) { while (up.length > 1 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); });
+    var hp = lo.slice(0, -1).concat(up.slice(0, -1));
+    hull.setAttribute("d", "M" + hp.map(function (q) { return q.join(" "); }).join("L") + "Z"); hull.style.strokeWidth = (R * .07).toFixed(2);
+    var d = ""; EDGES.forEach(function (e) { if (vis[e[2]] > .002 && e[3] >= 0 && vis[e[3]] > .002) d += "M" + P8[e[0]] + "L" + P8[e[1]]; });
+    inner.setAttribute("d", d); inner.style.strokeWidth = (R * .03).toFixed(2);
+    // la face sortie : grandit un peu et avance le long de sa normale
+    FACES.slice(0, 3).forEach(function (f, i) {
+      var v = S[f.id], el2 = pops[f.id];
+      if (v < .01 || vis[i] <= .05) { el2.setAttribute("points", ""); return; }
+      var c = [0, 0, 0]; f.q.forEach(function (j) { c[0] += C8[j][0] / 4; c[1] += C8[j][1] / 4; c[2] += C8[j][2] / 4; });
+      var g2 = 1 + .12 * v, off = .55 * v;
+      el2.setAttribute("points", f.q.map(function (j) {
+        var w = [0, 1, 2].map(function (m) { return c[m] + (C8[j][m] - c[m]) * g2 + f.n[m] * off; });
+        return proj(w).join(",");
+      }).join(" "));
+      el2.style.opacity = Math.min(1, v * 2).toFixed(2);
+    });
+  }
+  var secs = [].slice.call(sc.querySelectorAll(".sec"));
+  // repères de passage : de 88 % à 18 % de la hauteur du cadre
+  function progress() {
+    var y = sc.scrollTop, H = sc.clientHeight, p = 0;
+    for (var i = 1; i < secs.length; i++) {
+      var top = secs[i].offsetTop, b = Math.min(sc.scrollHeight - H, top - .18 * H), a = Math.max(0, Math.min(b - 20, top - .88 * H));
+      if (y >= b) p = i; else if (y > a) { p = i - 1 + (y - a) / (b - a); break; } else break;
+    }
+    return p;
+  }
+  var bar = document.getElementById("bar"), mark;
+  function buildBar() {
+    var H = sc.clientHeight, max = sc.scrollHeight - H, w = bar.clientWidth, html = "";
+    for (var i = 1; i < secs.length; i++) {
+      var top = secs[i].offsetTop, b = Math.min(max, top - .18 * H), a = Math.max(0, Math.min(b - 20, top - .88 * H)), dd = b - a;
+      var seg = function (s, e, c) { return '<i style="left:' + ((a + s * dd) / max * w).toFixed(1) + 'px;width:' + (((e - s) * dd) / max * w).toFixed(1) + 'px;background:' + c + '"></i>'; };
+      html += seg(0, .22, "#ADA896") + seg(.2, .8, "#2E6F6A") + seg(.78, 1, "#8FB8B3");
+    }
+    bar.innerHTML = html + '<span class="pos" id="pos"></span>'; mark = document.getElementById("pos");
+  }
+  var NAMES = ["", "la face rentre", "rotation et respiration", "la face sort"], ro = document.getElementById("readout");
+  function tick() {
+    var p = progress(), S = stateAt(p); render(S);
+    var max = sc.scrollHeight - sc.clientHeight; mark.style.left = (sc.scrollTop / max * bar.clientWidth).toFixed(1) + "px";
+    ro.textContent = S.phase ? "Passage " + S.i + " · " + NAMES[S.phase] : ST[Math.round(p)].name;
+  }
+  var raf = 0; sc.addEventListener("scroll", function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; tick(); }); }, { passive: true });
+  addEventListener("resize", function () { buildBar(); tick(); });
+  buildBar(); tick();
+})();
+</script>
+</body>
+</html>

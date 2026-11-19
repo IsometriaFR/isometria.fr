@@ -1,0 +1,34 @@
+<!-- @dsCard group="Site" name="En-tête du site" subtitle="Logo tracé, menu en IBM Plex Sans 500" width=700 height=150 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>En-tête du site</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background, #FEFDF9); }
+  .frame { box-sizing: border-box; width: 668px; max-width: 100%; border: 0.5px solid var(--color-border-strong, #DCD6C4); border-radius: 7px; background: var(--color-background, #FEFDF9); }
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; }
+  .brand { display: block; line-height: 0; }
+  .brand img { height: 28px; width: auto; display: block; }
+  .nav { display: flex; gap: 26px; font: 500 14px/1 "IBM Plex Sans", system-ui, sans-serif; color: var(--color-text-body, #55554E); }
+  .nav a { color: inherit; text-decoration: none; border-bottom: 0; font-weight: 500; }
+  .nav a:hover, .nav a:focus-visible, .nav a.is-hover { color: var(--color-primary, #2E6F6A); }
+  .nav a:focus-visible, .brand:focus-visible { outline: 2px solid var(--color-primary, #2E6F6A); outline-offset: 3px; }
+  .note { margin: 12px 0 0; font: 400 12.5px/1.5 "Nunito Sans", system-ui, sans-serif; color: var(--color-text-soft, #6B6B62); }
+</style>
+</head>
+<body>
+<div class="frame">
+  <header class="top">
+    <a class="brand" href="#" aria-label="Isometria, accueil"><img src="../../assets/Logos/isometria-wordmark.svg" alt="Isometria"></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#">Site web</a>
+      <a href="#" class="is-hover">Outils internes</a>
+      <a href="#">IA</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+</div>
+<p class="note">« Outils internes » est montré au survol. L’en-tête défile avec la page.</p>
+</body>
+</html>

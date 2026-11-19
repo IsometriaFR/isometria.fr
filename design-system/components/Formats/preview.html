@@ -1,0 +1,53 @@
+<!-- @dsCard group="Social et motion" name="Formats — canevas et zones libres" subtitle="Cinq canevas, petit côté de 1080 px" width=700 height=350 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Formats</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: #FEFDF9; font-family: "Nunito Sans", sans-serif; color: #2B2D2B; }
+  .card { box-sizing: border-box; width: 668px; max-width: 100%; padding: 20px 22px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; }
+  .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; }
+  .f { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .cv { position: relative; box-sizing: border-box; background: #F1EDE0; border: 1px solid #ADA896; border-radius: 3px; }
+  .safe { position: absolute; box-sizing: border-box; background: #DCE9E7; border: 1px dashed #2E6F6A; border-radius: 2px; }
+  .badge { position: absolute; right: 4px; bottom: 4px; width: 22px; height: 10px; border-radius: 2px; background: #6B6B62; }
+  .n { font-family: "IBM Plex Sans", sans-serif; font-weight: 500; font-size: 14px; line-height: 1.2; }
+  .d { font-family: "JetBrains Mono", monospace; font-size: 10.5px; line-height: 1.45; color: #6B6B62; }
+  .note { display: flex; gap: 18px; align-items: center; font-size: 12px; color: #6B6B62; margin: 16px 0 0; padding-top: 12px; border-top: 0.5px solid #F1EDE0; line-height: 1.5; }
+  .k { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .sw { width: 14px; height: 10px; box-sizing: border-box; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="row">
+    <div class="f">
+      <div class="cv" style="width:160px;height:90px"><div class="safe" style="left:8px;right:8px;top:6px;bottom:6px"></div></div>
+      <div><div class="n">16:9</div><div class="d">1920 × 1080<br>vidéo YouTube</div></div>
+    </div>
+    <div class="f">
+      <div class="cv" style="width:90px;height:160px"><div class="safe" style="left:5.4px;right:16px;top:24px;bottom:56px"></div></div>
+      <div><div class="n">9:16</div><div class="d">1080 × 1920<br>Shorts, Reels</div></div>
+    </div>
+    <div class="f">
+      <div class="cv" style="width:90px;height:112.5px"><div class="safe" style="left:6px;right:6px;top:6px;bottom:6px"></div></div>
+      <div><div class="n">4:5</div><div class="d">1080 × 1350<br>carrousel</div></div>
+    </div>
+    <div class="f">
+      <div class="cv" style="width:90px;height:90px"><div class="safe" style="left:6px;right:6px;top:6px;bottom:6px"></div></div>
+      <div><div class="n">1:1</div><div class="d">1080 × 1080<br>post, avatar</div></div>
+    </div>
+    <div class="f">
+      <div class="cv" style="width:106.7px;height:60px"><div class="safe" style="left:6px;right:6px;top:6px;bottom:6px"></div><div class="badge"></div></div>
+      <div><div class="n">Miniature</div><div class="d">1280 × 720<br>YouTube</div></div>
+    </div>
+  </div>
+  <div class="note">
+    <span class="k"><span class="sw" style="background:#DCE9E7;border:1px dashed #2E6F6A"></span>zone libre : titres, schémas, logo</span>
+    <span class="k"><span class="sw" style="background:#F1EDE0;border:1px solid #ADA896"></span>fond seul</span>
+    <span>En 9:16 : 288 px en haut, 672 px en bas, 65 px à gauche, 192 px à droite.</span>
+  </div>
+</div>
+</body>
+</html>

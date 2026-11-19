@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Iconography — Lucide" subtitle="Stroke 1.5–1.75, teal-600" viewport="700x220" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Iconography</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: "Nunito Sans", sans-serif; }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; }
+  h4 { margin: 0 0 14px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: #2B2D2B; letter-spacing: -0.005em; }
+  .row { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; align-items: center; justify-items: center; }
+  .icon { width: 22px; height: 22px; stroke: #2E6F6A; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .label { font-family: "JetBrains Mono", monospace; font-size: 10px; color: #ADA896; margin-top: 4px; }
+  .it { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .note { font-size: 12px; color: #6B6B62; margin-top: 14px; padding-top: 12px; border-top: 0.5px solid #F1EDE0; line-height: 1.5; }
+  .accent { color: #2E6F6A; font-weight: 600; }
+  .arrow { font-family: "Nunito Sans", sans-serif; font-size: 16px; color: #2E6F6A; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Iconographie — Lucide (stroke 1.5–1.75)</h4>
+  <div class="row">
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9 12 3l9 6v11a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V9z"/></svg><span class="label">home</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="label">globe</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><path d="m18 6-6 6-6-6M6 18l6-6 6 6"/></svg><span class="label">chevrons</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><path d="m7 8-4 4 4 4M17 8l4 4-4 4M14 4l-4 16"/></svg><span class="label">code</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="label">message</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z M4 9h16 M9 4v16"/></svg><span class="label">layout</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="label">search</span></div>
+    <div class="it"><svg class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="label">arrow-ur</span></div>
+  </div>
+  <p class="note">Stroke <span class="accent">teal-600</span>, 1.5 à 1.75. Jamais d'icônes fills pleins. Pour les liens externes, on utilise le caractère Unicode <span class="arrow">↗</span> plutôt qu'un SVG — plus léger et cohérent avec le texte.</p>
+</div>
+</body>
+</html>

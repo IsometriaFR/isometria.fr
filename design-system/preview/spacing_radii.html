@@ -1,0 +1,36 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Radii, borders, shadow" subtitle="Tokens + 0.5px hairline rule" viewport="700x260" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Radii & borders</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: "Nunito Sans", sans-serif; }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; }
+  h4 { margin: 0 0 14px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: #2B2D2B; letter-spacing: -0.005em; }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .item { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .box { width: 100%; height: 56px; background: #FFFFFF; border: 0.5px solid #F1EDE0; }
+  .token { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: #6B6B62; }
+  .val { font-family: "JetBrains Mono", monospace; font-size: 10px; color: #ADA896; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Rayons & bordures</h4>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:4px"></div><span class="token">radius-sm</span><span class="val">4px — tags tech, code inline</span></div>
+    <div class="item"><div class="box" style="border-radius:7px"></div><span class="token">radius-md</span><span class="val">7px — boutons</span></div>
+    <div class="item"><div class="box" style="border-radius:10px"></div><span class="token">radius-lg</span><span class="val">10px — cards</span></div>
+    <div class="item"><div class="box" style="border-radius:999px;height:28px;margin-top:14px"></div><span class="token">radius-pill</span><span class="val">999px — badges</span></div>
+  </div>
+  <div class="row" style="margin-top:18px">
+    <div class="item"><div class="box" style="border:0.5px solid #F1EDE0"></div><span class="token">border cream-400</span><span class="val">0.5px — subtile</span></div>
+    <div class="item"><div class="box" style="border:0.5px solid #DCD6C4"></div><span class="token">border cream-500</span><span class="val">0.5px — emphase</span></div>
+    <div class="item"><div class="box" style="border:1px solid #2E6F6A"></div><span class="token">border teal-600</span><span class="val">1px — secondary btn</span></div>
+    <div class="item"><div class="box" style="box-shadow:0 2px 8px rgba(43,45,43,0.06)"></div><span class="token">shadow-card-hover</span><span class="val">0 2 8 / 0.06</span></div>
+  </div>
+</div>
+</body>
+</html>

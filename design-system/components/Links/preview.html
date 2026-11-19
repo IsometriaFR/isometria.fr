@@ -1,0 +1,33 @@
+<!-- @dsCard group="Components" name="Links & nav" subtitle="Inline underline + nav without" width=700 height=210 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Links</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); font-family: "Nunito Sans", sans-serif; }
+  .card { box-sizing: border-box; width: 668px; padding: 22px 24px; background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; }
+  h4 { margin: 0 0 14px; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 16px; color: #2B2D2B; letter-spacing: -0.005em; }
+  p { font-size: 14px; color: #2B2D2B; line-height: 1.7; margin: 0 0 10px; max-width: 600px; }
+  a.inline { color: #2E6F6A; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(46, 111, 106, 0.4); }
+  a.inline:hover, a.hover { border-bottom-color: #2E6F6A !important; }
+  .nav { display: flex; gap: 28px; padding-top: 12px; border-top: 0.5px solid #F1EDE0; margin-top: 12px; }
+  .nav a { font-size: 14px; color: #2B2D2B; text-decoration: none; border: none; }
+  .nav a.active { color: #2E6F6A; font-weight: 500; }
+  .meta { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: #6B6B62; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h4>Liens</h4>
+  <p>Le studio livre ses sites avec <a class="inline" href="#">Astro</a> et déploie sur <a class="inline hover" href="#">Cloudflare Pages<span style="font-size:11px;">↗</span></a>. Toutes les pages sont livrées en statique.</p>
+  <div class="nav">
+    <a href="#">Accueil</a>
+    <a href="#" class="active">Services</a>
+    <a href="#">Journal</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="meta">body: teal-600 · underline rgba(46,111,106,0.4) — nav: no underline, weight 500 if active</div>
+</div>
+</body>
+</html>

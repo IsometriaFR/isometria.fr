@@ -1,0 +1,70 @@
+<!doctype html>
+<!-- @dsCard group="Type" name="Type · Three voices" subtitle="IBM Plex Sans · Nunito Sans · JetBrains Mono" viewport="700x240" -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Type — three voices</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 16px; background: var(--color-background); }
+  .card {
+    box-sizing: border-box; width: 668px; padding: 24px 26px 22px;
+    background: var(--color-surface); border: 0.5px solid var(--color-border); border-radius: 10px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;
+  }
+  .voice {
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 0 18px;
+    border-right: 0.5px solid var(--color-border);
+  }
+  .voice:first-child { padding-left: 0; }
+  .voice:last-child { padding-right: 0; border-right: 0; }
+  .glyph {
+    font-size: 64px; line-height: 1; color: var(--color-text);
+    letter-spacing: -0.02em; margin-bottom: 2px;
+  }
+  .glyph .accent { color: var(--color-primary); }
+  .t  { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; letter-spacing: -0.015em; }
+  .n  { font-family: "Nunito Sans", sans-serif; font-weight: 500; letter-spacing: -0.005em; }
+  .c  { font-family: "JetBrains Mono", monospace; font-weight: 500; letter-spacing: 0; font-size: 52px; }
+  .name {
+    font-family: "IBM Plex Sans", sans-serif; font-weight: 600;
+    font-size: 15px; color: var(--color-text); letter-spacing: -0.005em;
+    margin-top: 4px;
+  }
+  .role {
+    font-family: "Nunito Sans", sans-serif; font-size: 11.5px;
+    color: var(--color-text-soft); line-height: 1.5;
+    min-height: 52px;
+  }
+  .token {
+    font-family: "JetBrains Mono", monospace; font-size: 10px;
+    color: var(--color-text-muted);
+    padding-top: 8px; border-top: 0.5px dashed var(--color-border);
+    margin-top: auto;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="voice">
+    <div class="glyph t">A<span class="accent">a</span></div>
+    <div class="name">IBM Plex Sans</div>
+    <div class="role">La voix éditoriale — titres, H1 → H3, blockquotes, chiffres clés.</div>
+    <div class="token">--font-serif</div>
+  </div>
+  <div class="voice">
+    <div class="glyph n">Aa</div>
+    <div class="name">Nunito Sans</div>
+    <div class="role">La voix fonctionnelle — corps, UI, labels, navigation, boutons.</div>
+    <div class="token">--font-sans</div>
+  </div>
+  <div class="voice">
+    <div class="glyph c">Aa</div>
+    <div class="name">JetBrains Mono</div>
+    <div class="role">La voix technique — code inline, blocs, versions, chemins de fichiers.</div>
+    <div class="token">--font-mono</div>
+  </div>
+</div>
+</body>
+</html>

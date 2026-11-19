@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" name="Card & surfaces" subtitle="cream-100 → cream-50 layering" width=700 height=210 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Card & surfaces</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: #FEFDF9; font-family: "Nunito Sans", sans-serif; }
+  .wrap { box-sizing: border-box; width: 668px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .layer { background: #FFFFFE; border: 0.5px solid #F1EDE0; border-radius: 10px; padding: 20px 22px; }
+  .inner { background: #FFFFFF; border: 0.5px solid #F1EDE0; border-radius: 8px; padding: 14px 16px; margin-top: 12px; }
+  .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #2E6F6A; font-weight: 500; margin-bottom: 6px; }
+  .title { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 18px; color: #2B2D2B; letter-spacing: -0.005em; margin: 0 0 6px; }
+  .body { font-size: 13px; color: #6B6B62; line-height: 1.55; margin: 0; }
+  .accent { color: #2E6F6A; font-weight: 600; }
+  .meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: #ADA896; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="layer">
+    <div class="kicker">Card</div>
+    <h3 class="title">Le pattern <span class="accent">islands</span>.</h3>
+    <p class="body">Un article de journal publié ce mois-ci, sur l'hydratation à la demande avec Astro.</p>
+    <div class="meta">cream-100 / border cream-400 / radius 10</div>
+  </div>
+  <div class="layer">
+    <div class="kicker">Nested</div>
+    <h3 class="title">Hiérarchie de surfaces</h3>
+    <div class="inner">
+      <p class="body" style="margin:0">Surface élevée (cream-50) — modale, popover, tooltip.</p>
+    </div>
+    <div class="meta">cream-100 → cream-50</div>
+  </div>
+</div>
+</body>
+</html>

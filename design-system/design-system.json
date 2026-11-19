@@ -1,0 +1,170 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "isometria-wordmark.svg",
+        "isometria-wordmark-inverted.svg",
+        "isometria-mark.svg",
+        "isometria-mark-inverted.svg"
+      ],
+      "files": {}
+    },
+    "notes": {
+      "files": {},
+      "name": "notes",
+      "order": []
+    },
+    "Illustrations": {
+      "name": "Illustrations",
+      "tile": "l",
+      "order": [
+        "isometria-site.svg",
+        "isometria-app.svg",
+        "isometria-auto.svg",
+        "isometria-ia.svg"
+      ],
+      "files": {
+        "isometria-site.svg": {
+          "name": "isometria-site.svg",
+          "blob": "87ed478e0b499f097a260cff06fc9e79",
+          "size": 142471,
+          "type": "image/svg+xml"
+        },
+        "isometria-app.svg": {
+          "name": "isometria-app.svg",
+          "blob": "72ef6c8966dd1a535616aebf757a017e",
+          "size": 101629,
+          "type": "image/svg+xml"
+        },
+        "isometria-auto.svg": {
+          "name": "isometria-auto.svg",
+          "blob": "e414e20c3002a2d6900cb6fb0f7703a6",
+          "size": 119484,
+          "type": "image/svg+xml"
+        },
+        "isometria-ia.svg": {
+          "name": "isometria-ia.svg",
+          "blob": "cbac128690dd63e2dad79278e8145d1b",
+          "size": 102129,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "Accueil": {
+      "name": "Accueil",
+      "tile": "l",
+      "order": [
+        "accueil-bureau-1-hero.png",
+        "accueil-bureau-2-site.png",
+        "accueil-bureau-3-outils.png",
+        "accueil-bureau-4-ia.png",
+        "accueil-bureau-5-contact.png",
+        "accueil-mobile-1-hero.png",
+        "accueil-mobile-2-site.png",
+        "accueil-mobile-3-outils.png",
+        "accueil-mobile-4-ia.png",
+        "accueil-mobile-5-contact.png"
+      ],
+      "files": {
+        "accueil-bureau-1-hero.png": {
+          "name": "accueil-bureau-1-hero.png",
+          "blob": "ebd17ee5c3849b401b4dc43f48507a23",
+          "size": 247689,
+          "type": "image/png"
+        },
+        "accueil-bureau-2-site.png": {
+          "name": "accueil-bureau-2-site.png",
+          "blob": "398965cf008c391941bd795f24c47af3",
+          "size": 246684,
+          "type": "image/png"
+        },
+        "accueil-bureau-3-outils.png": {
+          "name": "accueil-bureau-3-outils.png",
+          "blob": "682d1e2a9ac98865a395b65222fe6bcf",
+          "size": 259534,
+          "type": "image/png"
+        },
+        "accueil-bureau-4-ia.png": {
+          "name": "accueil-bureau-4-ia.png",
+          "blob": "8aaa4b9f71ac2dd9ebf5d910fc02733a",
+          "size": 280582,
+          "type": "image/png"
+        },
+        "accueil-bureau-5-contact.png": {
+          "name": "accueil-bureau-5-contact.png",
+          "blob": "d4410c4221cf4623ffb75bd946493dc4",
+          "size": 244539,
+          "type": "image/png"
+        },
+        "accueil-mobile-1-hero.png": {
+          "name": "accueil-mobile-1-hero.png",
+          "blob": "375a69ce30e2d03b60e9812f228ba48c",
+          "size": 76590,
+          "type": "image/png"
+        },
+        "accueil-mobile-2-site.png": {
+          "name": "accueil-mobile-2-site.png",
+          "blob": "4c7de0090dbc8ba2dc9fddfc20f09489",
+          "size": 94505,
+          "type": "image/png"
+        },
+        "accueil-mobile-3-outils.png": {
+          "name": "accueil-mobile-3-outils.png",
+          "blob": "db7cfaa72e0ee098bec6f6d8d7d4a770",
+          "size": 100806,
+          "type": "image/png"
+        },
+        "accueil-mobile-4-ia.png": {
+          "name": "accueil-mobile-4-ia.png",
+          "blob": "0b6929be4d13cec2bff63201d9063cbd",
+          "size": 115175,
+          "type": "image/png"
+        },
+        "accueil-mobile-5-contact.png": {
+          "name": "accueil-mobile-5-contact.png",
+          "blob": "56505bf50f7b96fca61a756bf2529210",
+          "size": 139795,
+          "type": "image/png"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-09T16:37:05.082Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [
+    "Logos",
+    "Accueil",
+    "Illustrations",
+    "notes"
+  ],
+  "layout": "files",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "namespace": "IsometriaDesignSystem_f73f3a",
+  "sections": {},
+  "title": "Isometria Design System",
+  "lastChange": {
+    "by": "Negus Salomon",
+    "at": "2026-11-18T22:02:51Z",
+    "via": "Claude Code",
+    "note": "v2.0 : la page d’accueil devient la norme du site ; section « Le site », tokens du site (couleurs, type, grille), cartes En-tête, Bloc de section, Pied de page, Boutons à deux registres, captures de référence de l’accueil"
+  }
+}

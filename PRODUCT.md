@@ -46,8 +46,8 @@ Décisions ouvertes :
 
 - Nom : **Isometria**. Domaine : isometria.fr.
 - Logo : cube isométrique et logo texte, intégrés dans `src/components/home/SiteHeader.astro` et `public/favicon.svg`.
-- Le système visuel fait foi dans l'artefact Claude « Isometria Design System » (https://claude.ai/artifact/6GeN6NpdfEEZfBAuugnwLB) ; `docs/design-tokens.md` et `src/styles/global.css` en sont des copies locales.
-- Ce design system présente quatre offres et quatre illustrations (site web, application métier, automatisation, IA). Sur le site, application métier et automatisation forment une seule face, « Outils internes ».
+- Le design system est piloté par le code : sa source est le dossier `design-system/` du dépôt. L'artefact Claude « Isometria Design System » (https://claude.ai/artifact/6GeN6NpdfEEZfBAuugnwLB) en est la publication, mise à jour par `/design-sync`. `DESIGN.md` en est le résumé pour le site ; `docs/design-tokens.md` est une ancienne copie.
+- Depuis sa version 2.0, ce design system prend la page d'accueil en ligne comme norme du site et présente l'offre en trois faces. Il garde quatre illustrations (site web, application métier, automatisation, IA) : application métier et automatisation illustrent la même face, « Outils internes ».
 - Voix : directe, concrète, à la première personne, sans jargon technique ; elle parle du métier du client avant de parler de technologie.
 
 ## Evidence on Hand

@@ -1,0 +1,87 @@
+<!-- @dsCard group="Social et motion" name="Schémas — à plat et isométrique" subtitle="Sauge pour le sujet, ocre d’appoint pour une seule chose" width=700 height=525 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Schémas</title>
+<style>
+  html, body { margin: 0; padding: 16px; background: #FEFDF9; font-family: "Nunito Sans", sans-serif; }
+  .wrap { width: 668px; max-width: 100%; display: grid; gap: 12px; }
+  .panel { box-sizing: border-box; border-radius: 10px; padding: 18px 20px 14px; }
+  .light { background: #FEFDF9; border: 0.5px solid #DCD6C4; color: #2B2D2B; }
+  .dark { background: #121A19; border: 0.5px solid #3A4643; color: #FAF7EE; }
+  .sub { margin: 0 0 6px; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+  .light .sub { color: #6B6B62; } .dark .sub { color: #ADA896; }
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font-family: "Nunito Sans", sans-serif; font-size: 13px; }
+  svg text.mono { font-family: "JetBrains Mono", monospace; font-size: 12px; }
+  svg text.cap { font-size: 11.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel light">
+    <p class="sub">À plat — thème light</p>
+    <svg viewBox="0 0 628 150" role="img" aria-label="Flux en quatre étapes : courriel reçu, tri par Claude, brouillon de réponse, puis validation par vous, en ocre et en pointillé">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="30" width="124" height="48" rx="7" fill="#FFFFFE" stroke="#DCD6C4" stroke-width="1.5"/>
+        <rect x="168" y="30" width="124" height="48" rx="7" fill="#FFFFFE" stroke="#2E6F6A" stroke-width="1.5"/>
+        <rect x="335" y="30" width="124" height="48" rx="7" fill="#FFFFFE" stroke="#DCD6C4" stroke-width="1.5"/>
+        <rect x="502" y="30" width="124" height="48" rx="7" fill="#F6E7D2" stroke="#C4853A" stroke-width="1.5" stroke-dasharray="6 6"/>
+        <g stroke="#6B6B62" stroke-width="1.5">
+          <path d="M131 54h30M155 48l6 6-6 6"/>
+          <path d="M298 54h30M322 48l6 6-6 6"/>
+        </g>
+        <path d="M465 54h30M489 48l6 6-6 6" stroke="#C4853A" stroke-width="1.5" stroke-dasharray="6 6"/>
+      </g>
+      <g text-anchor="middle" fill="#2B2D2B">
+        <text x="63" y="58.5">Courriel reçu</text>
+        <text x="230" y="58.5" fill="#2E6F6A" font-weight="600">Tri par Claude</text>
+        <text x="397" y="58.5">Brouillon</text>
+        <text x="564" y="58.5" fill="#8A5519" font-weight="500">Vous validez</text>
+      </g>
+      <g class="cap" fill="#6B6B62" text-anchor="middle">
+        <text class="cap" x="230" y="100">le sujet : contour sauge</text>
+        <text class="cap" x="564" y="100" fill="#8A5519">le point de vigilance :</text>
+        <text class="cap" x="564" y="116" fill="#8A5519">ocre, pointillé, étiquette</text>
+        <text class="cap" x="1" y="100" text-anchor="start">structure : encre et crème</text>
+      </g>
+    </svg>
+  </div>
+  <div class="panel dark">
+    <p class="sub">Isométrique — thème dark</p>
+    <svg viewBox="0 0 628 210" role="img" aria-label="Empilement isométrique de trois couches : CLAUDE.md en bas, skills au milieu, hooks en haut, cette dernière en ocre">
+      <g stroke-linejoin="round" stroke-linecap="round">
+        <!-- couche basse -->
+        <g stroke="#8FB8B3" stroke-width="1.5">
+          <polygon points="82,150 160,195 160,207 82,162" fill="#1B4441"/>
+          <polygon points="238,150 160,195 160,207 238,162" fill="#1A2321"/>
+          <polygon points="160,105 238,150 160,195 82,150" fill="#26302E"/>
+        </g>
+        <!-- couche milieu -->
+        <g stroke="#8FB8B3" stroke-width="1.5">
+          <polygon points="82,98 160,143 160,155 82,110" fill="#1B4441"/>
+          <polygon points="238,98 160,143 160,155 238,110" fill="#1A2321"/>
+          <polygon points="160,53 238,98 160,143 82,98" fill="#26302E"/>
+        </g>
+        <!-- couche haute : appoint -->
+        <g stroke="#C4853A" stroke-width="1.5" stroke-dasharray="6 6">
+          <polygon points="82,46 160,91 160,103 82,58" fill="#3A2A14"/>
+          <polygon points="238,46 160,91 160,103 238,58" fill="#1A2321"/>
+          <polygon points="160,1 238,46 160,91 82,46" fill="#26302E"/>
+        </g>
+        <g fill="none" stroke="#ADA896" stroke-width="1.5">
+          <path d="M252 46h60"/><path d="M252 98h60"/><path d="M252 150h60"/>
+        </g>
+      </g>
+      <text class="mono" x="324" y="50" fill="#E3B777">hooks</text>
+      <text class="cap" x="324" y="67" fill="#E3B777">à surveiller : s’exécute sans te demander</text>
+      <text class="mono" x="324" y="102" fill="#FAF7EE">skills/</text>
+      <text class="cap" x="324" y="119" fill="#ADA896">chargés à la demande</text>
+      <text class="mono" x="324" y="154" fill="#FAF7EE">CLAUDE.md</text>
+      <text class="cap" x="324" y="171" fill="#ADA896">lu à chaque session</text>
+    </svg>
+  </div>
+</div>
+</body>
+</html>
