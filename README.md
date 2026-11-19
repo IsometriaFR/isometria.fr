@@ -75,6 +75,10 @@ Pour modifier le système : éditer les fichiers de `design-system/`, puis lance
 
 Le dossier est ignoré par Prettier, ESLint et la vérification de types : ses fichiers sont publiés tels quels.
 
+## Travailler avec Claude
+
+`CLAUDE.md` donne à Claude les règles du projet. Le skill de design `impeccable` et ses sous-agents sont suivis dans `.claude/` ; `.claude/settings.json` déclare les plugins et les hooks. Pour les sessions distantes (Projets Claude, sessions cloud), les réglages à faire côté claude.ai sont dans [`docs/claude-distant.md`](docs/claude-distant.md).
+
 ## Tailwind v4
 
 - Plugin Vite branché dans `astro.config.mjs` : `vite.plugins: [tailwindcss()]`.
